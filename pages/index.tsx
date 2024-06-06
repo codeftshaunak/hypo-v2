@@ -53,6 +53,7 @@ import {
   HighlightsTestimonialItem,
 } from "components/highlights";
 import { Teams } from "components/teams";
+import { Works } from "components/works";
 import { FaRegLifeRing, FaRegLightbulb } from "react-icons/fa";
 
 const Home: NextPage = () => {
@@ -70,6 +71,8 @@ const Home: NextPage = () => {
         <ServicesSection />
 
         <TeamSection />
+
+        <WorksSection />
 
         <TestimonialsSection />
 
@@ -389,6 +392,16 @@ const TeamSection = () => {
       title="Meet Our Teams"
       description="Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases"
       id="teams"
+    />
+  );
+};
+
+const WorksSection = () => {
+  return (
+    <Works
+      title="Showcase of Excellence"
+      description="Discover the standout projects that exemplify our commitment to quality and innovation. See how we've helped businesses transform and succeed."
+      id="works"
     />
   );
 };
