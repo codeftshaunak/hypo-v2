@@ -39,7 +39,11 @@ export const Pricing: React.FC<PricingProps> = (props) => {
     <Section id="pricing" pos="relative" {...rest}>
       <BackgroundGradient height="100%" />
       <Box zIndex="2" pos="relative">
-        <SectionTitle title={title} description={description}></SectionTitle>
+        <SectionTitle
+          title={title}
+          description={description}
+          align="center"
+        ></SectionTitle>
 
         <SimpleGrid columns={[1, null, 3]} spacing={4}>
           {plans?.map((plan) => (

@@ -1,71 +1,65 @@
-import * as React from "react";
-import type { NextPage } from "next";
-import Image from "next/image";
 import {
-  Container,
   Box,
-  Stack,
-  HStack,
   ButtonGroup,
-  Button,
-  Icon,
-  Heading,
-  Text,
-  Wrap,
-  Tag,
-  useClipboard,
-  IconButton,
-  VStack,
+  Container,
   Flex,
+  Heading,
+  Icon,
+  IconButton,
+  Stack,
+  Tag,
+  Text,
+  VStack,
+  Wrap,
+  useClipboard,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
+import type { NextPage } from "next";
+import Image from "next/image";
+import * as React from "react";
 
-import { FallInPlace } from "components/motion/fall-in-place";
+import { Faq } from "components/faq";
+import { Features } from "components/features";
+import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Hero } from "components/hero";
-import { Link, Br } from "@saas-ui/react";
+import { FallInPlace } from "components/motion/fall-in-place";
+import { Pricing } from "components/pricing/pricing";
 import { Em } from "components/typography";
-import { NextjsLogo, ChakraLogo } from "components/logos";
 import {
   FiArrowRight,
   FiBox,
   FiCheck,
-  FiCode,
   FiCopy,
   FiFlag,
-  FiGrid,
   FiLock,
   FiSearch,
   FiSliders,
-  FiSmile,
-  FiTerminal,
-  FiThumbsUp,
-  FiToggleLeft,
   FiTrendingUp,
   FiUserPlus,
+  FiUsers,
 } from "react-icons/fi";
-import { Features } from "components/features";
-import { BackgroundGradient } from "components/gradients/background-gradient";
-import { Faq } from "components/faq";
-import { Pricing } from "components/pricing/pricing";
 
 import { ButtonLink } from "components/button-link/button-link";
 import { Testimonial, Testimonials } from "components/testimonials";
 
 import faq from "data/faq";
-import testimonials from "data/testimonials";
 import pricing from "data/pricing";
+import testimonials from "data/testimonials";
 
 import {
   Highlights,
   HighlightsItem,
   HighlightsTestimonialItem,
 } from "components/highlights";
+import { Teams } from "components/teams";
+import { Works } from "components/works";
+import { FaRegLifeRing, FaRegLightbulb } from "react-icons/fa";
 
 const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="HypoMatrix Landingspage"
+        title="HypoMatrix - Your Digital Agency"
         description="Hypomatrix web design and development agency. Best website development agency in the world. Web development and software development project develop by great developer with morder technology react.js next.js node.js python mongodb express.js."
       />
       <Box>
@@ -73,7 +67,11 @@ const Home: NextPage = () => {
 
         <HighlightsSection />
 
-        <FeaturesSection />
+        <ServicesSection />
+
+        <TeamSection />
+
+        <WorksSection />
 
         <TestimonialsSection />
 
@@ -89,39 +87,27 @@ const HeroSection: React.FC = () => {
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
-      <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
+      <Container maxW="container.xl" pt={{ base: 40 }} pb="40">
         <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
           <Hero
             id="home"
             justifyContent="flex-start"
             px="0"
-            title={
-              <FallInPlace>
-                Build beautiful
-                <Br /> software faster
-              </FallInPlace>
-            }
+            title={<FallInPlace>Empowering Your Digital Future</FallInPlace>}
             description={
-              <FallInPlace delay={0.4} fontWeight="medium">
-                HypoMatrix is a <Em>React component library</Em>
-                <Br /> that doesn&apos;t get in your way and helps you <Br />{" "}
-                build intuitive SaaS products with speed.
+              <FallInPlace delay={0.4} fontWeight="medium" pb={5}>
+                Achieve unparalleled digital success with HypoMatrix. Our
+                innovative solutions and expert team are here to elevate your
+                brand and reach new heights.
               </FallInPlace>
             }
           >
             <FallInPlace delay={0.8}>
-              <HStack pt="4" pb="12" spacing="8">
-                <NextjsLogo height="28px" /> <ChakraLogo height="20px" />
-              </HStack>
-
               <ButtonGroup spacing={4} alignItems="center">
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
-                  Sign Up
-                </ButtonLink>
                 <ButtonLink
+                  colorScheme="primary"
                   size="lg"
-                  href="https://demo.saas-ui.dev"
-                  variant="outline"
+                  href="#"
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -135,7 +121,10 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
-                  View demo
+                  Get Started
+                </ButtonLink>
+                <ButtonLink size="lg" href="#benefits" variant="outline">
+                  Learn More
                 </ButtonLink>
               </ButtonGroup>
             </FallInPlace>
@@ -174,33 +163,34 @@ const HeroSection: React.FC = () => {
         pt="20"
         features={[
           {
-            title: "Accessible",
-            icon: FiSmile,
-            description: "All components strictly follow WAI-ARIA standards.",
+            title: "Innovative Solutions",
+            icon: FaRegLightbulb,
+            description:
+              "Cutting-edge strategies to elevate your online presence and drive growth.",
             iconPosition: "left",
             delay: 0.6,
           },
           {
-            title: "Themable",
-            icon: FiSliders,
+            title: "Expert Team",
+            icon: FiUsers,
             description:
-              "Fully customize all components to your brand with theme support and style props.",
+              "Highly skilled professionals dedicated to delivering top-tier digital services.",
             iconPosition: "left",
             delay: 0.8,
           },
           {
-            title: "Composable",
-            icon: FiGrid,
+            title: "Customized Approach",
+            icon: FiSliders,
             description:
-              "Compose components to fit your needs and mix them together to create new ones.",
+              "Tailored solutions designed to meet your unique business needs and objectives.",
             iconPosition: "left",
             delay: 1,
           },
           {
-            title: "Productive",
-            icon: FiThumbsUp,
+            title: "24/7 Support",
+            icon: FaRegLifeRing,
             description:
-              "Designed to reduce boilerplate and fully typed, build your product at speed.",
+              "Around-the-clock assistance to ensure seamless operation and prompt issue resolution.",
             iconPosition: "left",
             delay: 1.1,
           },
@@ -269,8 +259,8 @@ const HighlightsSection = () => {
         avatar="/static/images/avatar.jpg"
         gradient={["pink.200", "purple.500"]}
       >
-        “HypoMatrix helped us set up a beautiful modern UI in no time. It saved us
-        hundreds of hours in development time and allowed us to focus on
+        “HypoMatrix helped us set up a beautiful modern UI in no time. It saved
+        us hundreds of hours in development time and allowed us to focus on
         business logic for our specific use-case from the start.”
       </HighlightsTestimonialItem>
       <HighlightsItem
@@ -317,10 +307,10 @@ const HighlightsSection = () => {
   );
 };
 
-const FeaturesSection = () => {
+const ServicesSection = () => {
   return (
     <Features
-      id="features"
+      id="services"
       title={
         <Heading
           lineHeight="short"
@@ -328,16 +318,15 @@ const FeaturesSection = () => {
           textAlign="left"
           as="p"
         >
-          Not your standard
-          <Br /> dashboard template.
+          Your Success, Our Services
         </Heading>
       }
       description={
         <>
-          HypoMatrix Pro includes everything you need to build modern frontends.
-          <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
+          Discover a comprehensive suite of digital services designed to propel
+          your business forward. From innovative web development to targeted
+          digital marketing, our expert team is dedicated to creating customized
+          solutions that drive results.
         </>
       }
       align="left"
@@ -345,74 +334,68 @@ const FeaturesSection = () => {
       iconSize={4}
       features={[
         {
-          title: "Components.",
+          title: "Web Development",
           icon: FiBox,
           description:
-            "All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.",
-          variant: "inline",
+            "Custom-built websites to enhance user experience and drive engagement.",
+          variant: "left-icon",
         },
         {
-          title: "Starterkits.",
+          title: "Digital Marketing",
           icon: FiLock,
           description:
-            "Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.",
-          variant: "inline",
+            "Strategic campaigns to boost your online presence and attract your target audience.",
+          variant: "left-icon",
         },
         {
-          title: "Documentation.",
+          title: "SEO Optimization",
           icon: FiSearch,
           description:
-            "Extensively documented, including storybooks, best practices, use-cases and examples.",
-          variant: "inline",
+            "Optimize your website for search engines to increase visibility and traffic.",
+          variant: "left-icon",
         },
         {
-          title: "Onboarding.",
+          title: "Graphic Design",
           icon: FiUserPlus,
           description:
-            "Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.",
-          variant: "inline",
+            "Visually stunning designs to effectively communicate your brand message.",
+          variant: "left-icon",
         },
         {
-          title: "Feature flags.",
+          title: "Content Creation",
           icon: FiFlag,
           description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-          variant: "inline",
+            "High-quality content tailored to engage and inform your audience.",
+          variant: "left-icon",
         },
         {
-          title: "Upselling.",
+          title: "Social Media Management",
           icon: FiTrendingUp,
           description:
-            "Components and hooks for upgrade flows designed to make upgrading inside your app frictionless.",
-          variant: "inline",
-        },
-        {
-          title: "Themes.",
-          icon: FiToggleLeft,
-          description:
-            "Includes multiple themes with darkmode support, always have the perfect starting point for your next project.",
-          variant: "inline",
-        },
-        {
-          title: "Generators.",
-          icon: FiTerminal,
-          description:
-            "Extend your design system while maintaininig code quality and consistency with built-in generators.",
-          variant: "inline",
-        },
-        {
-          title: "Monorepo.",
-          icon: FiCode,
-          description: (
-            <>
-              All code is available as packages in a high-performance{" "}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
-            </>
-          ),
-          variant: "inline",
+            "Comprehensive social media strategies to grow your brand and connect with customers.",
+          variant: "left-icon",
         },
       ]}
+    />
+  );
+};
+
+const TeamSection = () => {
+  return (
+    <Teams
+      title="Meet Our Teams"
+      description="Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases"
+      id="teams"
+    />
+  );
+};
+
+const WorksSection = () => {
+  return (
+    <Works
+      title="Showcase of Excellence"
+      description="Discover the standout projects that exemplify our commitment to quality and innovation. See how we've helped businesses transform and succeed."
+      id="works"
     />
   );
 };
@@ -432,8 +415,10 @@ const TestimonialsSection = () => {
   return (
     <Testimonials
       title={testimonials.title}
+      description={testimonials.description}
       columns={[1, 2, 3]}
       innerWidth="container.xl"
+      id="reviews"
     >
       <>
         {columns.map((column, i) => (

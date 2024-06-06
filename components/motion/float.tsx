@@ -1,25 +1,25 @@
-import { MotionBox, MotionBoxProps } from './box'
-import React from 'react'
+import React from "react";
+import { MotionBoxProps, MotionFlex } from "./box";
 
 export const Float: React.FC<
   MotionBoxProps & { delay?: number; steps?: number[] }
 > = (props) => {
-  const { children, delay = 0.2, steps = [10, -10, 10], ...rest } = props
+  const { children, delay = 0.2, steps = [10, -10, 10], ...rest } = props;
   return (
-    <MotionBox
+    <MotionFlex
       animate={{ translateY: steps }}
       transition={{
         delay,
         duration: 5,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         times: [0, 0.2, 0.5, 0.8, 1],
         repeat: Infinity,
         repeatDelay: 0,
-        repeatType: 'reverse',
+        repeatType: "reverse",
       }}
       {...rest}
     >
       {children}
-    </MotionBox>
-  )
-}
+    </MotionFlex>
+  );
+};

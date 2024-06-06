@@ -6,12 +6,12 @@ const nextConfig = {
       test: /\.svg$/,
       use: [
         {
-          loader: '@svgr/webpack',
+          loader: "@svgr/webpack",
           options: {
             svgoConfig: {
               plugins: [
                 {
-                  name: 'removeViewBox',
+                  name: "removeViewBox",
                   active: false,
                 },
               ],
@@ -19,9 +19,19 @@ const nextConfig = {
           },
         },
       ],
-    })
-    return config
+    });
+    return config;
   },
-}
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
-export default nextConfig
+export default nextConfig;
