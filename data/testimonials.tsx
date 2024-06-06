@@ -54,9 +54,9 @@ export default {
       avatar: "https://randomuser.me/api/portraits/women/68.jpg",
       children: (
         <>
-          “HypoMatrix's social media management has increased our brand
+          {`“HypoMatrix's social media management has increased our brand
           visibility and customer engagement. Their creative approach is
-          impressive.”
+          impressive.”`}
         </>
       ),
     },
@@ -66,9 +66,9 @@ export default {
       avatar: "https://randomuser.me/api/portraits/men/35.jpg",
       children: (
         <>
-          “The SEO optimization services from HypoMatrix have drastically
+          {`“The SEO optimization services from HypoMatrix have drastically
           improved our search engine rankings. We're now reaching more customers
-          than ever.”
+          than ever.”`}
         </>
       ),
     },

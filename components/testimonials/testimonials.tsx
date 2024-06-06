@@ -22,7 +22,7 @@ export const Testimonials: React.FC<TestimonialsProps> = (props) => {
   } = props;
   return (
     <Section {...rest}>
-      <SectionTitle title={title} description={description} />
+      <SectionTitle title={title} description={description} align="center" />
       <SimpleGrid columns={columns} spacing="8">
         {children}
       </SimpleGrid>

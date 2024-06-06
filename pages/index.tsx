@@ -52,6 +52,7 @@ import {
   HighlightsItem,
   HighlightsTestimonialItem,
 } from "components/highlights";
+import { Teams } from "components/teams";
 import { FaRegLifeRing, FaRegLightbulb } from "react-icons/fa";
 
 const Home: NextPage = () => {
@@ -67,6 +68,8 @@ const Home: NextPage = () => {
         <HighlightsSection />
 
         <ServicesSection />
+
+        <TeamSection />
 
         <TestimonialsSection />
 
@@ -380,6 +383,16 @@ const ServicesSection = () => {
   );
 };
 
+const TeamSection = () => {
+  return (
+    <Teams
+      title="Meet Our Teams"
+      description="Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases"
+      id="teams"
+    />
+  );
+};
+
 const TestimonialsSection = () => {
   const columns = React.useMemo(() => {
     return testimonials.items.reduce<Array<typeof testimonials.items>>(
@@ -398,6 +411,7 @@ const TestimonialsSection = () => {
       description={testimonials.description}
       columns={[1, 2, 3]}
       innerWidth="container.xl"
+      id="reviews"
     >
       <>
         {columns.map((column, i) => (
