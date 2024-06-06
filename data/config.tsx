@@ -3,6 +3,12 @@ import { NextSeoProps } from "next-seo";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
 
+type LinkType = {
+  id: string;
+  label: string;
+  href?: string;
+};
+
 const siteConfig = {
   logo: undefined,
   seo: {
@@ -39,7 +45,7 @@ const siteConfig = {
       //   href: "/signup",
       //   variant: "primary",
       // },
-    ],
+    ] as LinkType[],
   },
   footer: {
     copyright: (
