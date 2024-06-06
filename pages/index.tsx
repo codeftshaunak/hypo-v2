@@ -18,7 +18,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import * as React from "react";
 
-import { Br } from "@saas-ui/react";
 import { Faq } from "components/faq";
 import { Features } from "components/features";
 import { BackgroundGradient } from "components/gradients/background-gradient";
@@ -94,17 +93,12 @@ const HeroSection: React.FC = () => {
             id="home"
             justifyContent="flex-start"
             px="0"
-            title={
-              <FallInPlace>
-                Build beautiful
-                <Br /> software faster
-              </FallInPlace>
-            }
+            title={<FallInPlace>Empowering Your Digital Future</FallInPlace>}
             description={
               <FallInPlace delay={0.4} fontWeight="medium" pb={5}>
-                HypoMatrix is a <Em>React component library</Em>
-                <Br /> that doesn&apos;t get in your way and helps you <Br />{" "}
-                build intuitive SaaS products with speed.
+                Achieve unparalleled digital success with HypoMatrix. Our
+                innovative solutions and expert team are here to elevate your
+                brand and reach new heights.
               </FallInPlace>
             }
           >

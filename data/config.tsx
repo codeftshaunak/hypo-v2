@@ -7,7 +7,8 @@ const siteConfig = {
   logo: undefined,
   seo: {
     title: "HypoMatrix",
-    description: "You Next Digital Agency",
+    description:
+      "Empower your business with HypoMatrix's creative and technical expertise. We deliver customized digital solutions for enhanced growth and visibility.",
   } as NextSeoProps,
   termsUrl: "#",
   privacyUrl: "#",
@@ -29,35 +30,34 @@ const siteConfig = {
         id: "reviews",
         label: "Reviews",
       },
-      {
-        label: "Login",
-        href: "/login",
-      },
-      {
-        label: "Sign Up",
-        href: "/signup",
-        variant: "primary",
-      },
+      // {
+      //   label: "Login",
+      //   href: "/login",
+      // },
+      // {
+      //   label: "Sign Up",
+      //   href: "/signup",
+      //   variant: "primary",
+      // },
     ],
   },
   footer: {
     copyright: (
       <>
-        Built by{" "}
-        <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link>
+        Built by <Link href="https://hypomatrix.com/">HypoMatrix</Link>
       </>
     ),
     links: [
       {
-        href: "mailto:hello@saas-ui.dev",
+        href: "mailto:hypomatrix@gmail.com",
         label: "Contact",
       },
       {
-        href: "https://twitter.com/saas_js",
+        href: "https://twitter.com/hypomatrix",
         label: <FaTwitter size="14" />,
       },
       {
-        href: "https://github.com/saas-js/saas-ui",
+        href: "https://github.com/hypomatrix",
         label: <FaGithub size="14" />,
       },
     ],

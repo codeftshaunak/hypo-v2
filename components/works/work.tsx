@@ -6,6 +6,7 @@ import {
   Link,
   Stack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { MotionBox } from "components/motion/box";
 import Image from "next/image";
@@ -19,6 +20,8 @@ type Props = {
 
 const Work = (props: Props) => {
   const { project, index } = props;
+
+  const colorScheme = useColorModeValue("whiteAlpha", "black");
 
   return (
     <MotionBox
@@ -72,7 +75,8 @@ const Work = (props: Props) => {
               alignItems={"center"}
               justifyContent={"center"}
               display={"inline-flex"}
-              colorScheme="black"
+              colorScheme={colorScheme}
+              variant={"solid"}
               mr={"auto"}
             >
               {index + 1}
@@ -110,7 +114,12 @@ const Work = (props: Props) => {
 
           <Flex flexWrap={"wrap"} gap={1}>
             {project.technologies.map((tech) => (
-              <Badge variant={"solid"} colorScheme="black" px={2} key={tech}>
+              <Badge
+                variant={"solid"}
+                colorScheme={colorScheme}
+                px={2}
+                key={tech}
+              >
                 {tech}
               </Badge>
             ))}

@@ -54,7 +54,7 @@ const Team = (props: Props) => {
           }}
           layout
           sx={{
-            backgroundColor: "gray.900",
+            backgroundColor: "background",
 
             textAlign: "center",
             py: 3,
@@ -67,7 +67,7 @@ const Team = (props: Props) => {
           <Text fontSize={"xl"} fontWeight={"bold"}>
             {member?.firstName} {member?.lastName}
           </Text>
-          <Text fontSize={"sm"} color="gray.300">
+          <Text fontSize={"sm"} opacity={0.7} fontWeight={"medium"}>
             {member?.position}
           </Text>
 
