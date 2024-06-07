@@ -8,7 +8,7 @@ type Props = {
   member: TeamMember;
 };
 
-const Team = (props: Props) => {
+const TeamCard = (props: Props) => {
   const { member } = props;
 
   return (
@@ -98,4 +98,4 @@ const Team = (props: Props) => {
   );
 };
 
-export default Team;
+export default TeamCard;

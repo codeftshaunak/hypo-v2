@@ -1,39 +1,16 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Section, SectionProps, SectionTitle } from "components/section";
+import { FeatureItem } from "types/feature";
 import { FeatureCard } from "./feature-card";
 
 // ----------------------------------------------------------------------
 
-type Props = {} & Omit<SectionProps, "children">;
-
-const data = [
-  {
-    title: "Custom Software Solution",
-    text: "With SEOMY, you get everything you need for a fast website",
-    link: "#",
-    img: "/static/pages/home/feature-1.jpg",
-    color: "#A1C081",
-  },
-  {
-    title: "Business technology solution",
-    text: "With SEOMY, you get everything you need for a fast website",
-    link: "#",
-    img: "/static/pages/home/feature-2.jpg",
-    color: "#FFBD4D",
-  },
-  {
-    title: "Idea generate & <br/>solution",
-    text: "With SEOMY, you get everything you need for a fast website",
-    link: "#",
-    img: "/static/pages/home/feature-3.jpg",
-    color: "#FF4B1B",
-  },
-];
+type Props = { features: FeatureItem[] } & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------
 
 export const FeaturesSection = (props: Props) => {
-  const { ...rest } = props;
+  const { features, ...rest } = props;
 
   return (
     <Section innerWidth={"container.lg"} id="features" {...rest}>
@@ -53,7 +30,7 @@ export const FeaturesSection = (props: Props) => {
         }}
         gap={6}
       >
-        {data.map((feature, index) => (
+        {features.map((feature, index) => (
           <GridItem key={index}>
             <FeatureCard feature={feature} index={index + 1} height={"full"} />
           </GridItem>

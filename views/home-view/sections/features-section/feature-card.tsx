@@ -17,8 +17,8 @@ export const FeatureCard = (props: Props) => {
     <Card
       p={{ base: 0, sm: 2 }}
       border={"2px"}
-      borderColor={feature.color}
-      bgColor={alpha(feature.color, 0.3)}
+      borderColor={feature.themeColor}
+      bgColor={alpha(feature.themeColor, 0.3)}
       {...rest}
     >
       <CardBody display={"flex"} flexDirection={"column"}>
@@ -31,7 +31,7 @@ export const FeatureCard = (props: Props) => {
           borderRadius={100}
           width={10}
           height={10}
-          borderColor={feature.color}
+          borderColor={feature.themeColor}
           mb={10}
         >
           {prefixZero(index)}
@@ -48,21 +48,23 @@ export const FeatureCard = (props: Props) => {
           as="p"
           fontSize={"md"}
           mb={5}
-          dangerouslySetInnerHTML={{ __html: feature.text }}
+          dangerouslySetInnerHTML={{ __html: feature.description }}
         />
-        <Link
-          as={RouterLink}
-          href={feature.link}
-          display={"inline-block"}
-          mb={10}
-          color="primary"
-        >
-          Learn More
-        </Link>
 
-        <Stack justifyContent={"flex-end"} px={5} flex={1}>
+        {feature?.href && (
+          <Link
+            as={RouterLink}
+            href={feature.href}
+            display={"inline-block"}
+            color="primary"
+          >
+            Learn More
+          </Link>
+        )}
+
+        <Stack justifyContent={"flex-end"} px={5} flex={1} mt={10}>
           <Box position={"relative"} aspectRatio={320 / 250} width={"100%"}>
-            <Image src={feature.img} alt={feature.title} fill />
+            <Image src={feature.thumbnailUrl} alt={feature.title} fill />
           </Box>
         </Stack>
       </CardBody>

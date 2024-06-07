@@ -1,13 +1,21 @@
 import { Stack } from "@chakra-ui/react";
 import * as React from "react";
 
-import { Testimonial, Testimonials } from "components/testimonials";
+import { Testimonials } from "components/testimonials";
 
-import testimonials from "data/testimonials";
+import { testimonialsSection } from "data/testimonials";
+import { ReviewItem } from "types/review";
+import { ReviewCard } from "./review-card";
 
-export const ReviewsSection = () => {
+type Props = {
+  reviews: ReviewItem[];
+};
+
+export const ReviewsSection = (props: Props) => {
+  const { reviews } = props;
+
   const columns = React.useMemo(() => {
-    return testimonials.items.reduce<Array<typeof testimonials.items>>(
+    return reviews.reduce<Array<ReviewItem[]>>(
       (columns, t, i) => {
         columns[i % 3].push(t);
 
@@ -15,12 +23,12 @@ export const ReviewsSection = () => {
       },
       [[], [], []]
     );
-  }, []);
+  }, [reviews]);
 
   return (
     <Testimonials
-      title={testimonials.title}
-      description={testimonials.description}
+      title={testimonialsSection.title}
+      description={testimonialsSection.description}
       columns={[1, 2, 3]}
       innerWidth="container.xl"
       id="reviews"
@@ -29,7 +37,7 @@ export const ReviewsSection = () => {
         {columns.map((column, i) => (
           <Stack key={i} spacing="8">
             {column.map((t, i) => (
-              <Testimonial key={i} {...t} />
+              <ReviewCard review={t} key={i} />
             ))}
           </Stack>
         ))}

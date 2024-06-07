@@ -1,4 +1,6 @@
-export default [
+import { TeamMember } from "types/team";
+
+export const teamsList: TeamMember[] = [
   {
     firstName: "Alice",
     lastName: "Johnson",

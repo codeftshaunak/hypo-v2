@@ -1,15 +1,13 @@
 import { Section, SectionProps, SectionTitle } from "components/section";
-import Team from "./team";
 
 import Carousel, { ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { TeamMember } from "types/team";
+import TeamCard from "./team-card";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  title: string;
-  description: string;
   teams: TeamMember[];
 } & Omit<SectionProps, "children">;
 
@@ -34,20 +32,22 @@ const responsive: ResponsiveType = {
 
 // ----------------------------------------------------------------------
 
-const Teams = (props: Props) => {
-  const { title, description, teams, ...rest } = props;
+export const TeamsSection = (props: Props) => {
+  const { teams, ...rest } = props;
 
   return (
-    <Section {...rest}>
-      <SectionTitle title={title} description={description} align="left" />
+    <Section id="teams" {...rest}>
+      <SectionTitle
+        title="Meet Our Teams"
+        description="Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases"
+        align="left"
+      />
 
       <Carousel responsive={responsive} partialVisible>
         {teams.map((teamMember) => (
-          <Team member={teamMember} key={teamMember.firstName} />
+          <TeamCard member={teamMember} key={teamMember.firstName} />
         ))}
       </Carousel>
     </Section>
   );
 };
-
-export default Teams;

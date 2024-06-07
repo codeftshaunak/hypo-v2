@@ -18,7 +18,7 @@ type Props = {
   index: number;
 };
 
-const Work = (props: Props) => {
+const WorkCard = (props: Props) => {
   const { project, index } = props;
 
   const colorScheme = useColorModeValue("whiteAlpha", "black");
@@ -131,4 +131,4 @@ const Work = (props: Props) => {
   );
 };
 
-export default Work;
+export default WorkCard;

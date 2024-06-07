@@ -1,4 +1,4 @@
-export default [
+export const worksList = [
   {
     title: "E-Commerce Revolution",
     description:
