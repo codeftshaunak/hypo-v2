@@ -5,10 +5,12 @@ import { ServiceItem } from "types/service";
 
 type Props = {
   services: ServiceItem[];
+  title: string;
+  description: string;
 };
 
 export const ServicesSection = (props: Props) => {
-  const { services } = props;
+  const { services, title, description } = props;
 
   return (
     <Features
@@ -20,17 +22,10 @@ export const ServicesSection = (props: Props) => {
           textAlign="left"
           as="p"
         >
-          Your Success, Our Services
+          {title}
         </Heading>
       }
-      description={
-        <>
-          Discover a comprehensive suite of digital services designed to propel
-          your business forward. From innovative web development to targeted
-          digital marketing, our expert team is dedicated to creating customized
-          solutions that drive results.
-        </>
-      }
+      description={<>{description}</>}
       align="left"
       columns={[1, 2, 3]}
       iconSize={4}

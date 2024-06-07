@@ -3,16 +3,17 @@ import * as React from "react";
 
 import { Testimonials } from "components/testimonials";
 
-import { testimonialsSection } from "data/testimonials";
 import { ReviewItem } from "types/review";
 import { ReviewCard } from "./review-card";
 
 type Props = {
   reviews: ReviewItem[];
+  title: string;
+  description: string;
 };
 
 export const ReviewsSection = (props: Props) => {
-  const { reviews } = props;
+  const { reviews, title, description } = props;
 
   const columns = React.useMemo(() => {
     return reviews.reduce<Array<ReviewItem[]>>(
@@ -27,8 +28,8 @@ export const ReviewsSection = (props: Props) => {
 
   return (
     <Testimonials
-      title={testimonialsSection.title}
-      description={testimonialsSection.description}
+      title={title}
+      description={description}
       columns={[1, 2, 3]}
       innerWidth="container.xl"
       id="reviews"

@@ -1,5 +1,4 @@
 import { Link } from "@saas-ui/react";
-import { NextSeoProps } from "next-seo";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
 
@@ -11,11 +10,6 @@ type LinkType = {
 
 const siteConfig = {
   logo: undefined,
-  seo: {
-    title: "HypoMatrix",
-    description:
-      "Empower your business with HypoMatrix's creative and technical expertise. We deliver customized digital solutions for enhanced growth and visibility.",
-  } as NextSeoProps,
   termsUrl: "#",
   privacyUrl: "#",
   header: {
@@ -71,6 +65,8 @@ const siteConfig = {
         label: <FaGithub size="14" />,
       },
     ],
+    description:
+      "Empower your business with HypoMatrix's creative and technical expertise. We deliver customized digital solutions for enhanced growth and visibility.",
   },
   signup: {
     title: "Start building with Saas UI",

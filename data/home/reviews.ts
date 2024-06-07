@@ -1,6 +1,6 @@
 import { ReviewItem } from "types/review";
 
-export const testimonialsSection = {
+export const reviewsSection = {
   title: "Hear from Our Happy Clients",
   description:
     "Discover what our satisfied clients have to say about their experiences with HypoMatrix. Read our glowing testimonials and see how we've helped businesses like yours achieve outstanding results",

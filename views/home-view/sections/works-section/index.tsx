@@ -9,20 +9,18 @@ import Work from "./work-card";
 
 type Props = {
   works: WorkItem[];
+  title: string;
+  description: string;
 } & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------
 
 export const WorksSection = (props: Props) => {
-  const { works, ...rest } = props;
+  const { works, title, description, ...rest } = props;
 
   return (
     <Section id="works" {...rest}>
-      <SectionTitle
-        title="Showcase of Excellence"
-        description="Discover the standout projects that exemplify our commitment to quality and innovation. See how we've helped businesses transform and succeed."
-        align="left"
-      />
+      <SectionTitle title={title} description={description} align="left" />
 
       <Grid
         templateColumns={{

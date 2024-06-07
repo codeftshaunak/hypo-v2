@@ -1,9 +1,23 @@
 import { Box } from "@chakra-ui/react";
-import { featuresList } from "data/features";
-import { servicesList } from "data/services";
-import { teamsList } from "data/teams";
-import { reviewsList } from "data/testimonials";
-import { worksList } from "data/works";
+
+import {
+  faqSection,
+  faqsList,
+  featuresList,
+  featuresSection,
+  heroSection,
+  plansList,
+  pricingSection,
+  reviewsList,
+  reviewsSection,
+  servicesList,
+  servicesSection,
+  teamsList,
+  teamsSection,
+  worksList,
+  worksSection,
+} from "data/home";
+
 import { FaqSection } from "./sections/faq-section";
 import { FeaturesSection } from "./sections/features-section";
 import { HeroSection } from "./sections/hero-section";
@@ -18,21 +32,56 @@ type Props = {};
 const HomeView = (props: Props) => {
   return (
     <Box>
-      <HeroSection />
+      <HeroSection
+        title={heroSection.title}
+        description={heroSection.description}
+        imageRatio={heroSection.imageRatio}
+        imageUrl={heroSection.imageUrl}
+        primaryLink={heroSection.primaryLink}
+        secondaryLink={heroSection.secondaryLink}
+      />
 
-      <FeaturesSection features={featuresList} />
+      <FeaturesSection
+        title={featuresSection.title}
+        description={featuresSection.description}
+        features={featuresList}
+      />
 
-      <ServicesSection services={servicesList} />
+      <ServicesSection
+        title={servicesSection.title}
+        description={servicesSection.description}
+        services={servicesList}
+      />
 
-      <TeamsSection teams={teamsList} />
+      <TeamsSection
+        title={teamsSection.title}
+        description={teamsSection.description}
+        teams={teamsList}
+      />
 
-      <WorksSection works={worksList} />
+      <WorksSection
+        title={worksSection.title}
+        description={worksSection.description}
+        works={worksList}
+      />
 
-      <ReviewsSection reviews={reviewsList} />
+      <ReviewsSection
+        title={reviewsSection.title}
+        description={reviewsSection.description}
+        reviews={reviewsList}
+      />
 
-      <PricingSection />
+      <PricingSection
+        title={pricingSection.title}
+        description={pricingSection.description}
+        plans={plansList}
+      />
 
-      <FaqSection />
+      <FaqSection
+        title={faqSection.title}
+        description={faqSection.description}
+        faqs={faqsList}
+      />
     </Box>
   );
 };

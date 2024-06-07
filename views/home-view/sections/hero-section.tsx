@@ -1,6 +1,5 @@
-import { Box, Container, Flex, Icon, Stack, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Icon, Stack } from "@chakra-ui/react";
 import Image from "next/image";
-import * as React from "react";
 
 import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Hero } from "components/hero";
@@ -8,8 +7,57 @@ import { FallInPlace } from "components/motion/fall-in-place";
 import { FiArrowRight } from "react-icons/fi";
 
 import { ButtonLink } from "components/button-link/button-link";
+import { LinkItem } from "types/link";
 
-export const HeroSection: React.FC = () => {
+// ----------------------------------------------------------------------
+
+type Props = {
+  title: string;
+  description: string;
+  primaryLink?: LinkItem;
+  secondaryLink?: LinkItem;
+  imageUrl: string;
+  imageRatio: number;
+};
+
+export const HeroSection = (props: Props) => {
+  const {
+    title,
+    description,
+    primaryLink,
+    secondaryLink,
+    imageUrl,
+    imageRatio,
+  } = props;
+
+  const renderPrimaryLink = primaryLink?.title && (
+    <ButtonLink
+      colorScheme="primary"
+      size="lg"
+      href={primaryLink.href}
+      rightIcon={
+        <Icon
+          as={FiArrowRight}
+          sx={{
+            transitionProperty: "common",
+            transitionDuration: "normal",
+            ".chakra-button:hover &": {
+              transform: "translate(5px)",
+            },
+          }}
+        />
+      }
+    >
+      {primaryLink.title}
+    </ButtonLink>
+  );
+
+  const renderSecondaryLink = secondaryLink?.title && (
+    <ButtonLink size="lg" href={secondaryLink.href} variant="outline">
+      {secondaryLink.title}
+    </ButtonLink>
+  );
+
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
@@ -23,20 +71,10 @@ export const HeroSection: React.FC = () => {
             justifyContent="flex-start"
             py={0}
             px="0"
-            title={
-              <FallInPlace>
-                Solve Business Challenges With
-                <Text as="span" color="primary.500">
-                  {" "}
-                  HypoMatrix
-                </Text>
-              </FallInPlace>
-            }
+            title={<FallInPlace>{title}</FallInPlace>}
             description={
               <FallInPlace delay={0.4} fontWeight="medium" pb={5}>
-                Achieve unparalleled digital success with HypoMatrix. Our
-                innovative solutions and expert team are here to elevate your
-                brand and reach new heights.
+                {description}
               </FallInPlace>
             }
             containerProps={{ width: "100%" }}
@@ -49,28 +87,8 @@ export const HeroSection: React.FC = () => {
                 alignItems="center"
                 flexWrap={"wrap"}
               >
-                <ButtonLink
-                  colorScheme="primary"
-                  size="lg"
-                  href="#"
-                  rightIcon={
-                    <Icon
-                      as={FiArrowRight}
-                      sx={{
-                        transitionProperty: "common",
-                        transitionDuration: "normal",
-                        ".chakra-button:hover &": {
-                          transform: "translate(5px)",
-                        },
-                      }}
-                    />
-                  }
-                >
-                  Get Started
-                </ButtonLink>
-                <ButtonLink size="lg" href="#benefits" variant="outline">
-                  Learn More
-                </ButtonLink>
+                {renderPrimaryLink}
+                {renderSecondaryLink}
               </Flex>
             </FallInPlace>
           </Hero>
@@ -78,17 +96,12 @@ export const HeroSection: React.FC = () => {
             <FallInPlace delay={1}>
               <Box
                 position={"relative"}
-                aspectRatio={521 / 534}
+                aspectRatio={imageRatio}
                 width={"100%"}
                 maxW={"500px"}
                 ml={"auto"}
               >
-                <Image
-                  src="/static/pages/home/hero.png"
-                  fill
-                  alt="Screenshot of a ListPage in HypoMatrix Pro"
-                  priority
-                />
+                <Image src={imageUrl} fill alt={title} priority />
               </Box>
             </FallInPlace>
           </Box>

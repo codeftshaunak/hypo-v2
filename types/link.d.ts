@@ -1,0 +1,6 @@
+export type LinkItem = {
+  title: string;
+  href: string;
+  text?: string;
+  newTab?: boolean;
+};

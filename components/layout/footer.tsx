@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = (props) => {
             <Logo />
           </Flex>
           <Text fontSize="md" color="muted">
-            {siteConfig.seo.description}
+            {siteConfig.footer.description}
           </Text>
         </Stack>
         <SimpleGrid columns={columns}>

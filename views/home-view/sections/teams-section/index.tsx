@@ -9,6 +9,8 @@ import TeamCard from "./team-card";
 
 type Props = {
   teams: TeamMember[];
+  title: string;
+  description: string;
 } & Omit<SectionProps, "children">;
 
 const responsive: ResponsiveType = {
@@ -33,15 +35,11 @@ const responsive: ResponsiveType = {
 // ----------------------------------------------------------------------
 
 export const TeamsSection = (props: Props) => {
-  const { teams, ...rest } = props;
+  const { teams, title, description, ...rest } = props;
 
   return (
     <Section id="teams" {...rest}>
-      <SectionTitle
-        title="Meet Our Teams"
-        description="Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases"
-        align="left"
-      />
+      <SectionTitle title={title} description={description} align="left" />
 
       <Carousel responsive={responsive} partialVisible>
         {teams.map((teamMember) => (

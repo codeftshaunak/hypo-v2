@@ -1,5 +1,11 @@
 import { FeatureItem } from "types/feature";
 
+export const featuresSection = {
+  title: "What makes different",
+  description:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, repellendus!",
+};
+
 export const featuresList: FeatureItem[] = [
   {
     title: "Custom Software Solution",

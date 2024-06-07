@@ -5,22 +5,20 @@ import { FeatureCard } from "./feature-card";
 
 // ----------------------------------------------------------------------
 
-type Props = { features: FeatureItem[] } & Omit<SectionProps, "children">;
+type Props = {
+  features: FeatureItem[];
+  title: string;
+  description: string;
+} & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------
 
 export const FeaturesSection = (props: Props) => {
-  const { features, ...rest } = props;
+  const { features, title, description, ...rest } = props;
 
   return (
     <Section innerWidth={"container.lg"} id="features" {...rest}>
-      <SectionTitle
-        title={"What makes different"}
-        description={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, repellendus!"
-        }
-        align="center"
-      />
+      <SectionTitle title={title} description={description} align="center" />
 
       <Grid
         templateColumns={{

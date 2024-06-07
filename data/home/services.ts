@@ -8,6 +8,11 @@ import {
 } from "react-icons/fi";
 import { ServiceItem } from "types/service";
 
+export const servicesSection = {
+  title: "Your Success, Our Services",
+  description: `Discover a comprehensive suite of digital services designed to propel your business forward. From innovative web development to targeted digital marketing, our expert team is dedicated to creating customized solutions that drive results.`,
+};
+
 export const servicesList: ServiceItem[] = [
   {
     title: "Web Development",
