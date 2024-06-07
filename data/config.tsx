@@ -21,6 +21,10 @@ const siteConfig = {
   header: {
     links: [
       {
+        id: "features",
+        label: "Features",
+      },
+      {
         id: "services",
         label: "Services",
       },
