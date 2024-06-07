@@ -11,7 +11,7 @@ export const seoConfig: NextSeoProps = {
     url: "https://hypomatrix.com",
     images: [
       {
-        url: "/static/logos/hypomatrix.png",
+        url: "https://hypomatrix.com/static/logos/hypomatrix.png",
         alt: "HypoMatrix",
         height: 760,
         width: 1728,
