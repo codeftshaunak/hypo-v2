@@ -27,6 +27,8 @@ const WorkCard = (props: Props) => {
     <MotionBox
       initial={"initial"}
       whileHover={"hover"}
+      whileTap={"hover"}
+      whileFocus={"hover"}
       sx={{
         position: "relative",
         aspectRatio: 9 / 12,
@@ -35,7 +37,6 @@ const WorkCard = (props: Props) => {
         overflow: "hidden",
       }}
       animate={"initial"}
-      whileTap={"hover"}
     >
       <Image
         src={project.cover}
