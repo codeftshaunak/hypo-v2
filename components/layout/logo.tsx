@@ -16,7 +16,7 @@ export const Logo = ({ href = "/", onClick }: LogoProps) => {
   } else {
     logo = (
       <Heading as="h1" size="md">
-        {siteConfig.seo?.title}
+        {siteConfig.title}
       </Heading>
     );
   }
@@ -25,7 +25,7 @@ export const Logo = ({ href = "/", onClick }: LogoProps) => {
     <Flex flexShrink="0" alignItems="flex-start">
       <Link href={href} display="flex" borderRadius="sm" onClick={onClick}>
         {logo}
-        <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>
+        <VisuallyHidden>{siteConfig.title}</VisuallyHidden>
       </Link>
     </Flex>
   );

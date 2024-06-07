@@ -10,6 +10,7 @@ type LinkType = {
 
 const siteConfig = {
   logo: undefined,
+  title: "HypoMatrix",
   termsUrl: "#",
   privacyUrl: "#",
   header: {
