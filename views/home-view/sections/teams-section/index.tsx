@@ -1,13 +1,14 @@
 import { Section, SectionProps, SectionTitle } from "components/section";
-import teams from "data/teams";
-import Team from "./team";
 
 import Carousel, { ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { TeamMember } from "types/team";
+import TeamCard from "./team-card";
 
 // ----------------------------------------------------------------------
 
 type Props = {
+  teams: TeamMember[];
   title: string;
   description: string;
 } & Omit<SectionProps, "children">;
@@ -33,20 +34,18 @@ const responsive: ResponsiveType = {
 
 // ----------------------------------------------------------------------
 
-const Teams = (props: Props) => {
-  const { title, description, ...rest } = props;
+export const TeamsSection = (props: Props) => {
+  const { teams, title, description, ...rest } = props;
 
   return (
-    <Section {...rest}>
+    <Section id="teams" {...rest}>
       <SectionTitle title={title} description={description} align="left" />
 
       <Carousel responsive={responsive} partialVisible>
         {teams.map((teamMember) => (
-          <Team member={teamMember} key={teamMember.firstName} />
+          <TeamCard member={teamMember} key={teamMember.firstName} />
         ))}
       </Carousel>
     </Section>
   );
 };
-
-export default Teams;

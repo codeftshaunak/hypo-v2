@@ -18,7 +18,7 @@ type Props = {
   index: number;
 };
 
-const Work = (props: Props) => {
+const WorkCard = (props: Props) => {
   const { project, index } = props;
 
   const colorScheme = useColorModeValue("whiteAlpha", "black");
@@ -27,6 +27,8 @@ const Work = (props: Props) => {
     <MotionBox
       initial={"initial"}
       whileHover={"hover"}
+      whileTap={"hover"}
+      whileFocus={"hover"}
       sx={{
         position: "relative",
         aspectRatio: 9 / 12,
@@ -130,4 +132,4 @@ const Work = (props: Props) => {
   );
 };
 
-export default Work;
+export default WorkCard;

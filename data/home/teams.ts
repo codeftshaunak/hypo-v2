@@ -1,4 +1,12 @@
-export default [
+import { TeamMember } from "types/team";
+
+export const teamsSection = {
+  title: "Meet Our Teams",
+  description:
+    "Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases",
+};
+
+export const teamsList: TeamMember[] = [
   {
     firstName: "Alice",
     lastName: "Johnson",

@@ -1,24 +1,25 @@
 import { Section, SectionProps, SectionTitle } from "components/section";
-import works from "data/works";
 
 import { Grid, GridItem } from "@chakra-ui/react";
 import "react-multi-carousel/lib/styles.css";
-import Work from "./work";
+import { WorkItem } from "types/work";
+import Work from "./work-card";
 
 // ----------------------------------------------------------------------
 
 type Props = {
+  works: WorkItem[];
   title: string;
   description: string;
 } & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------
 
-const Works = (props: Props) => {
-  const { title, description, ...rest } = props;
+export const WorksSection = (props: Props) => {
+  const { works, title, description, ...rest } = props;
 
   return (
-    <Section {...rest}>
+    <Section id="works" {...rest}>
       <SectionTitle title={title} description={description} align="left" />
 
       <Grid
@@ -39,5 +40,3 @@ const Works = (props: Props) => {
     </Section>
   );
 };
-
-export default Works;

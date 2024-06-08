@@ -1,6 +1,5 @@
-import React from 'react'
-import { NextSeo, NextSeoProps } from 'next-seo'
-import siteConfig from 'data/config'
+import { seoConfig } from "data/seo";
+import { NextSeo, NextSeoProps } from "next-seo";
 
 export interface SEOProps extends NextSeoProps {}
 
@@ -8,9 +7,9 @@ export const SEO = ({ title, description, ...props }: SEOProps) => (
   <NextSeo
     title={title}
     description={description}
-    openGraph={{ ...siteConfig.seo.openGraph, title, description }}
-    titleTemplate={siteConfig.seo.titleTemplate}
-    twitter={siteConfig.seo.twitter}
+    openGraph={{ ...seoConfig.openGraph, title, description }}
+    titleTemplate={seoConfig.titleTemplate}
+    twitter={seoConfig.twitter}
     {...props}
   />
-)
+);
