@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-import { heroSection, plansList } from "data/home";
+import { plansList } from "data/home";
 
 import { FAQType } from "types/faq";
 import { FeatureType } from "types/feature";
@@ -37,8 +37,8 @@ const HomeView = (props: Props) => {
       <HeroSection
         title={website?.heroSection?.title}
         description={website?.heroSection?.description}
-        imageRatio={heroSection.imageRatio}
-        imageUrl={heroSection.imageUrl}
+        imageRatio={website.heroImage.width / website.heroImage.height}
+        imageUrl={website.heroImage.url}
         primaryLink={website?.primaryLink}
         secondaryLink={website?.secondaryLink}
       />
