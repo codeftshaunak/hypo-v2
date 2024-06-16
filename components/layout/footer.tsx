@@ -31,20 +31,20 @@ export const Footer: React.FC<FooterProps> = (props) => {
           maxWidth={{ base: "100%", lg: "50%" }}
         >
           <Flex>
-            <Logo title={website.footerSection?.title} logo={website.logo} />
+            <Logo title={website?.footerSection?.title} logo={website?.logo} />
           </Flex>
           <Text fontSize="md" color="muted">
-            {website.footerSection?.description}
+            {website?.footerSection?.description}
           </Text>
         </Stack>
         <SimpleGrid columns={columns}>
           <Stack spacing="8">
             <Copyright>
-              Built by <Link href="/">{website.title}</Link>
+              Built by <Link href="/">{website?.title}</Link>
             </Copyright>
           </Stack>
           <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
-            {website.footerLinks?.map((link, index) => (
+            {website?.footerLinks?.map((link, index) => (
               <FooterLink key={index} href={getLinkHref(link)}>
                 {link.title}
               </FooterLink>

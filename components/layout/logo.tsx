@@ -1,6 +1,5 @@
 import { Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
 import { Link } from "@saas-ui/react";
-import * as React from "react";
 
 export interface LogoProps {
   href?: string;
