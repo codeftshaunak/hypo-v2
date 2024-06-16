@@ -80,6 +80,14 @@ export async function getStaticProps() {
   const reviews = await getReviews();
   const faqs = await getFAQs();
 
+  if (website.errors?.length) throw new Error("website fetch failed");
+  if (features.errors?.length) throw new Error("features fetch failed");
+  if (services.errors?.length) throw new Error("services fetch failed");
+  if (members.errors?.length) throw new Error("members fetch failed");
+  if (projects.errors?.length) throw new Error("projects fetch failed");
+  if (reviews.errors?.length) throw new Error("reviews fetch failed");
+  if (faqs.errors?.length) throw new Error("faqs fetch failed");
+
   return {
     props: {
       website: website.data || {},
