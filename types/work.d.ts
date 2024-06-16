@@ -1,9 +1,11 @@
-export type WorkItem = {
+import { AssetType } from "./hygraph";
+
+export type ProjectType = {
+  id: string;
   title: string;
   description: string;
-  cover: string;
+  slug: string;
   technologies: string[];
-
-  caseStudyLink?: string;
-  demoLink?: string;
+  reference: null | string;
+  thumbnail: AssetType;
 };

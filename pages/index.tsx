@@ -13,6 +13,7 @@ import { ReviewType } from "types/review";
 import { ServiceType } from "types/service";
 import { MemberType } from "types/team";
 import { WebsiteType } from "types/website";
+import { ProjectType } from "types/work";
 import { HomeView } from "views/home-view";
 
 type Props = {
@@ -21,10 +22,11 @@ type Props = {
   services: ServiceType[];
   members: MemberType[];
   reviews: ReviewType[];
+  projects: ProjectType[];
 };
 
 const Home: NextPage<Props> = (props) => {
-  const { website, features, services, members, reviews } = props;
+  const { website, features, services, members, reviews, projects } = props;
 
   return (
     <Box>
@@ -35,6 +37,7 @@ const Home: NextPage<Props> = (props) => {
         services={services}
         members={members}
         reviews={reviews}
+        projects={projects}
       />
     </Box>
   );

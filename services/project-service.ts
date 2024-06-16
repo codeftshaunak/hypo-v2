@@ -1,9 +1,9 @@
 import { ApiResponseType } from "types/hygraph";
-import { WorkItem } from "types/work";
+import { ProjectType } from "types/work";
 import { asyncWrapper } from "./common";
 import { getProjectsQuery } from "./queries/project-queries";
 
-export const getProjects = asyncWrapper<WorkItem[]>(async () => {
+export const getProjects = asyncWrapper<ProjectType[]>(async () => {
   const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT as string;
 
   const response = await fetch(HYGRAPH_ENDPOINT, {
@@ -16,7 +16,8 @@ export const getProjects = asyncWrapper<WorkItem[]>(async () => {
     }),
   });
 
-  const json: ApiResponseType<{ projects: WorkItem[] }> = await response.json();
+  const json: ApiResponseType<{ projects: ProjectType[] }> =
+    await response.json();
 
   if (json.errors?.length) throw json.errors;
 
