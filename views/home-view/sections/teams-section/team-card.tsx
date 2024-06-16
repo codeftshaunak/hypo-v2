@@ -2,12 +2,13 @@ import { Box, Flex, IconButton, Link, Stack, Text } from "@chakra-ui/react";
 import { MotionBox } from "components/motion/box";
 import { getSocialIcon } from "data/icons";
 import Image from "next/image";
-import { TeamMember } from "types/team";
+import { MemberType } from "types/team";
+import { getLinkHref } from "utils/get-link-href";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  member: TeamMember;
+  member: MemberType;
 };
 
 const TeamCard = (props: Props) => {
@@ -23,18 +24,18 @@ const TeamCard = (props: Props) => {
       </Text>
 
       <Flex alignItems={"center"} justifyContent={"center"} gap={1} mt={3}>
-        {member.links.map((link) => {
-          const iconDetails = getSocialIcon(link.key);
+        {member.externalLinks.map((link) => {
+          const iconDetails = getSocialIcon(link.icon);
 
           if (!iconDetails) return null;
 
           return (
             <IconButton
-              key={link.key}
-              aria-label={link.key}
+              key={link.title}
+              aria-label={link.title}
               icon={<iconDetails.icon color={iconDetails.color} size={18} />}
               as={Link}
-              href={link.url}
+              href={getLinkHref(link)}
               target="_blank"
             />
           );
@@ -60,7 +61,7 @@ const TeamCard = (props: Props) => {
       animate={"initial"}
     >
       <Image
-        src={member.photoUrl}
+        src={member.avatar.url}
         alt={member.firstName}
         fill
         style={{ objectFit: "cover", userSelect: "none" }}

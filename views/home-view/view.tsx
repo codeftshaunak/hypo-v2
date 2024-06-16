@@ -5,12 +5,12 @@ import {
   heroSection,
   plansList,
   reviewsList,
-  teamsList,
   worksList,
 } from "data/home";
 
 import { FeatureType } from "types/feature";
 import { ServiceType } from "types/service";
+import { MemberType } from "types/team";
 import { WebsiteType } from "types/website";
 import { FaqSection } from "./sections/faq-section";
 import { FeaturesSection } from "./sections/features-section";
@@ -25,10 +25,11 @@ type Props = {
   website: WebsiteType;
   features: FeatureType[];
   services: ServiceType[];
+  members: MemberType[];
 };
 
 const HomeView = (props: Props) => {
-  const { website, features, services } = props;
+  const { website, features, services, members } = props;
 
   return (
     <Box>
@@ -56,7 +57,7 @@ const HomeView = (props: Props) => {
       <TeamsSection
         title={website?.teamsSection?.title}
         description={website?.teamsSection?.description}
-        teams={teamsList}
+        teams={members}
       />
 
       <WorksSection

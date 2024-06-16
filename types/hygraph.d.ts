@@ -16,6 +16,7 @@ export type ColorType = {
 export type LinkType = {
   title: string;
   url?: string;
+  icon?: string;
   path?: string;
   text?: string;
   newTab: boolean;

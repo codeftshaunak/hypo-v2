@@ -2,13 +2,13 @@ import { Section, SectionProps, SectionTitle } from "components/section";
 
 import Carousel, { ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { TeamMember } from "types/team";
+import { MemberType } from "types/team";
 import TeamCard from "./team-card";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  teams: TeamMember[];
+  teams: MemberType[];
   title?: string;
   description?: string;
 } & Omit<SectionProps, "children">;
