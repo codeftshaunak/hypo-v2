@@ -33,7 +33,7 @@ export const ServicesSection = (props: Props) => {
       features={services.map((s) => ({
         ...s,
         variant: "left-icon",
-        icon: getServiceIcon(s.icon as any),
+        icon: getServiceIcon(s.icon as any).icon,
       }))}
     />
   );

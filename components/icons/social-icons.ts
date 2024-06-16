@@ -11,4 +11,5 @@ export const socialIcons = [
   { key: "facebook", icon: FaFacebook, color: "" },
 ];
 
-export const getSocialIcon = (key) => socialIcons.find((s) => s.key === key);
+export const getSocialIcon = (key?: string) =>
+  socialIcons.find((s) => s.key === key);

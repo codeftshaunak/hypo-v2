@@ -7,8 +7,8 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { getSocialIcon } from "components/icons";
 import { MotionBox } from "components/motion/box";
-import { getSocialIcon } from "data/icons";
 import { Variants } from "framer-motion";
 import Image from "next/image";
 import { MemberType } from "types/team";

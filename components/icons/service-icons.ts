@@ -7,18 +7,19 @@ import {
   FiUserPlus,
 } from "react-icons/fi";
 
-export const serviceIcons = {
-  web_development: FiBox,
+export const serviceIcons = [
+  { key: "web_development", icon: FiBox },
+  { key: "digital_marketing", icon: FiLock },
+  { key: "seo_optimization", icon: FiSearch },
+  { key: "graphic_design", icon: FiUserPlus },
+  { key: "content_creation", icon: FiFlag },
+  { key: "social_media_management", icon: FiTrendingUp },
+];
 
-  digital_marketing: FiLock,
-  seo_optimization: FiSearch,
-  graphic_design: FiUserPlus,
-  content_creation: FiFlag,
-  social_media_management: FiTrendingUp,
-};
+export const getServiceIcon = (key?: string) => {
+  const icon = serviceIcons.find((i) => i.key === key);
 
-export const getServiceIcon = (key?: keyof typeof serviceIcons) => {
-  if (key && serviceIcons[key] !== undefined) return serviceIcons[key];
+  if (icon) return icon;
 
-  return FiBox;
+  return serviceIcons[0];
 };
