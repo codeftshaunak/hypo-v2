@@ -6,6 +6,7 @@ export type WebsiteType = {
   logoText: string;
   logo: AssetType;
   heroSection: SectionHeaderType;
+  heroImage: AssetType;
   featuresSection: SectionHeaderType;
   servicesSection: SectionHeaderType;
   teamsSection: SectionHeaderType;

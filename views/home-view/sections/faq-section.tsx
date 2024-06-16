@@ -1,7 +1,8 @@
 import { Faq } from "components/faq";
+import { FAQType } from "types/faq";
 
 type Props = {
-  faqs: any[];
+  faqs: FAQType[];
   title?: string;
   description?: string;
 };

@@ -1,13 +1,14 @@
 import { Box } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
-import { seoConfig } from "data/seo";
 import type { NextPage } from "next";
+import { getFAQs } from "services/faq-service";
 import { getFeatures } from "services/feature-service";
 import { getMembers } from "services/member-service";
 import { getProjects } from "services/project-service";
 import { getReviews } from "services/review-service";
 import { getServices } from "services/service-service";
 import { getWebsite } from "services/website-service";
+import { FAQType } from "types/faq";
 import { FeatureType } from "types/feature";
 import { ReviewType } from "types/review";
 import { ServiceType } from "types/service";
@@ -23,14 +24,38 @@ type Props = {
   members: MemberType[];
   reviews: ReviewType[];
   projects: ProjectType[];
+  faqs: FAQType[];
 };
 
 const Home: NextPage<Props> = (props) => {
-  const { website, features, services, members, reviews, projects } = props;
+  const { website, features, services, members, reviews, projects, faqs } =
+    props;
 
   return (
     <Box>
-      <SEO title={seoConfig.title} description={seoConfig.description} />
+      <SEO
+        title={website.seo.title}
+        description={website.seo.description}
+        titleTemplate={website.title}
+        canonical={website.seo.url}
+        openGraph={{
+          title: website.seo.openGraph.title,
+          description: website.seo.openGraph.description,
+          url: website.seo.openGraph.url,
+          images:
+            website.seo.openGraph?.images?.map((image) => ({
+              url: image.url,
+              width: image.width,
+              height: image.height,
+            })) || [],
+          videos:
+            website.seo.openGraph?.videos?.map((video) => ({
+              url: video.url,
+              width: video.width,
+              height: video.height,
+            })) || [],
+        }}
+      />
       <HomeView
         website={website}
         features={features}
@@ -38,6 +63,7 @@ const Home: NextPage<Props> = (props) => {
         members={members}
         reviews={reviews}
         projects={projects}
+        faqs={faqs}
       />
     </Box>
   );
@@ -52,6 +78,7 @@ export async function getStaticProps() {
   const members = await getMembers();
   const projects = await getProjects();
   const reviews = await getReviews();
+  const faqs = await getFAQs();
 
   return {
     props: {
@@ -61,6 +88,7 @@ export async function getStaticProps() {
       members: members.data || [],
       projects: projects.data || [],
       reviews: reviews.data || [],
+      faqs: faqs.data || [],
       announcement: {
         title: "Support us by becoming a stargazer! 🚀 ",
         description:

@@ -13,6 +13,11 @@ query Website {
       title
       description
     }
+    heroImage {
+      width
+      height
+      url
+    }
     featuresSection {
       title
       description
