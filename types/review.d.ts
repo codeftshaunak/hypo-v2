@@ -1,6 +1,8 @@
-export type ReviewItem = {
+import { AssetType } from "./hygraph";
+
+export type ReviewType = {
   name: string;
   position: string;
-  avatarUrl: string;
-  description: string;
+  message: string;
+  avatar: AssetType;
 };

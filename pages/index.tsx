@@ -4,9 +4,12 @@ import { seoConfig } from "data/seo";
 import type { NextPage } from "next";
 import { getFeatures } from "services/feature-service";
 import { getMembers } from "services/member-service";
+import { getProjects } from "services/project-service";
+import { getReviews } from "services/review-service";
 import { getServices } from "services/service-service";
 import { getWebsite } from "services/website-service";
 import { FeatureType } from "types/feature";
+import { ReviewType } from "types/review";
 import { ServiceType } from "types/service";
 import { MemberType } from "types/team";
 import { WebsiteType } from "types/website";
@@ -17,10 +20,11 @@ type Props = {
   features: FeatureType[];
   services: ServiceType[];
   members: MemberType[];
+  reviews: ReviewType[];
 };
 
 const Home: NextPage<Props> = (props) => {
-  const { website, features, services, members } = props;
+  const { website, features, services, members, reviews } = props;
 
   return (
     <Box>
@@ -30,6 +34,7 @@ const Home: NextPage<Props> = (props) => {
         features={features}
         services={services}
         members={members}
+        reviews={reviews}
       />
     </Box>
   );
@@ -42,6 +47,8 @@ export async function getStaticProps() {
   const features = await getFeatures();
   const services = await getServices();
   const members = await getMembers();
+  const projects = await getProjects();
+  const reviews = await getReviews();
 
   return {
     props: {
@@ -49,6 +56,8 @@ export async function getStaticProps() {
       features: features.data || [],
       services: services.data || [],
       members: members.data || [],
+      projects: projects.data || [],
+      reviews: reviews.data || [],
       announcement: {
         title: "Support us by becoming a stargazer! 🚀 ",
         description:

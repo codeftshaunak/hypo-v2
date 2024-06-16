@@ -8,10 +8,10 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { ReviewItem } from "types/review";
+import { ReviewType } from "types/review";
 
 export interface Props extends CardProps {
-  review: ReviewItem;
+  review: ReviewType;
 }
 
 export const ReviewCard = (props: Props) => {
@@ -22,7 +22,7 @@ export const ReviewCard = (props: Props) => {
       <CardHeader display="flex" flexDirection="row" alignItems="center">
         <Avatar
           name={review.name}
-          src={review.avatarUrl}
+          src={review?.avatar?.url}
           size="sm"
           bg="transparent"
         />
@@ -33,7 +33,7 @@ export const ReviewCard = (props: Props) => {
           </Text>
         </Stack>
       </CardHeader>
-      <CardBody>{review.description}</CardBody>
+      <CardBody>{review.message}</CardBody>
     </Card>
   );
 };

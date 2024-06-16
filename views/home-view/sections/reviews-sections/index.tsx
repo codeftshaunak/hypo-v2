@@ -3,11 +3,11 @@ import * as React from "react";
 
 import { Testimonials } from "components/testimonials";
 
-import { ReviewItem } from "types/review";
+import { ReviewType } from "types/review";
 import { ReviewCard } from "./review-card";
 
 type Props = {
-  reviews: ReviewItem[];
+  reviews: ReviewType[];
   title?: string;
   description?: string;
 };
@@ -16,7 +16,7 @@ export const ReviewsSection = (props: Props) => {
   const { reviews, title, description } = props;
 
   const columns = React.useMemo(() => {
-    return reviews.reduce<Array<ReviewItem[]>>(
+    return reviews.reduce<Array<ReviewType[]>>(
       (columns, t, i) => {
         columns[i % 3].push(t);
 
@@ -37,8 +37,8 @@ export const ReviewsSection = (props: Props) => {
       <>
         {columns.map((column, i) => (
           <Stack key={i} spacing="8">
-            {column.map((t, i) => (
-              <ReviewCard review={t} key={i} />
+            {column.map((review, i) => (
+              <ReviewCard review={review} key={i} />
             ))}
           </Stack>
         ))}
