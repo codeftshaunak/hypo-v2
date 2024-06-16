@@ -9,8 +9,8 @@ import Work from "./work-card";
 
 type Props = {
   works: WorkItem[];
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 } & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------

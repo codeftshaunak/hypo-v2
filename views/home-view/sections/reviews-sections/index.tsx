@@ -8,8 +8,8 @@ import { ReviewCard } from "./review-card";
 
 type Props = {
   reviews: ReviewItem[];
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 };
 
 export const ReviewsSection = (props: Props) => {

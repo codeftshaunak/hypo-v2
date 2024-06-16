@@ -1,20 +1,20 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Section, SectionProps, SectionTitle } from "components/section";
-import { FeatureItem } from "types/feature";
+import { FeatureType } from "types/feature";
 import { FeatureCard } from "./feature-card";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  features: FeatureItem[];
-  title: string;
-  description: string;
+  features: FeatureType[];
+  title?: string;
+  description?: string;
 } & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------
 
 export const FeaturesSection = (props: Props) => {
-  const { features, title, description, ...rest } = props;
+  const { features, title = "", description = "", ...rest } = props;
 
   return (
     <Section innerWidth={"container.lg"} id="features" {...rest}>

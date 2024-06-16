@@ -5,8 +5,8 @@ import { ServiceItem } from "types/service";
 
 type Props = {
   services: ServiceItem[];
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 };
 
 export const ServicesSection = (props: Props) => {

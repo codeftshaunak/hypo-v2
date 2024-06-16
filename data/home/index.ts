@@ -1,5 +1,4 @@
 export * from "./faq";
-export * from "./features";
 export * from "./hero";
 export * from "./pricing";
 export * from "./reviews";

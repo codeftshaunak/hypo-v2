@@ -7,23 +7,24 @@ import { FallInPlace } from "components/motion/fall-in-place";
 import { FiArrowRight } from "react-icons/fi";
 
 import { ButtonLink } from "components/button-link/button-link";
-import { LinkItem } from "types/link";
+import { LinkType } from "types/hygraph";
+import { getLinkHref } from "utils/get-link-href";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  title: string;
-  description: string;
-  primaryLink?: LinkItem;
-  secondaryLink?: LinkItem;
+  title?: string;
+  description?: string;
+  primaryLink?: LinkType;
+  secondaryLink?: LinkType;
   imageUrl: string;
   imageRatio: number;
 };
 
 export const HeroSection = (props: Props) => {
   const {
-    title,
-    description,
+    title = "",
+    description = "",
     primaryLink,
     secondaryLink,
     imageUrl,
@@ -34,7 +35,7 @@ export const HeroSection = (props: Props) => {
     <ButtonLink
       colorScheme="primary"
       size="lg"
-      href={primaryLink.href}
+      href={getLinkHref(primaryLink)}
       rightIcon={
         <Icon
           as={FiArrowRight}
@@ -53,7 +54,7 @@ export const HeroSection = (props: Props) => {
   );
 
   const renderSecondaryLink = secondaryLink?.title && (
-    <ButtonLink size="lg" href={secondaryLink.href} variant="outline">
+    <ButtonLink size="lg" href={getLinkHref(secondaryLink)} variant="outline">
       {secondaryLink.title}
     </ButtonLink>
   );

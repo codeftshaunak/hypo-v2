@@ -1,23 +1,17 @@
 import { Box } from "@chakra-ui/react";
 
 import {
-  faqSection,
   faqsList,
-  featuresList,
-  featuresSection,
   heroSection,
   plansList,
-  pricingSection,
   reviewsList,
-  reviewsSection,
   servicesList,
-  servicesSection,
   teamsList,
-  teamsSection,
   worksList,
-  worksSection,
 } from "data/home";
 
+import { FeatureType } from "types/feature";
+import { WebsiteType } from "types/website";
 import { FaqSection } from "./sections/faq-section";
 import { FeaturesSection } from "./sections/features-section";
 import { HeroSection } from "./sections/hero-section";
@@ -27,59 +21,64 @@ import { ServicesSection } from "./sections/services-section";
 import { TeamsSection } from "./sections/teams-section/index";
 import { WorksSection } from "./sections/works-section";
 
-type Props = {};
+type Props = {
+  website: WebsiteType;
+  features: FeatureType[];
+};
 
 const HomeView = (props: Props) => {
+  const { website, features } = props;
+
   return (
     <Box>
       <HeroSection
-        title={heroSection.title}
-        description={heroSection.description}
+        title={website?.heroSection?.title}
+        description={website?.heroSection?.description}
         imageRatio={heroSection.imageRatio}
         imageUrl={heroSection.imageUrl}
-        primaryLink={heroSection.primaryLink}
-        secondaryLink={heroSection.secondaryLink}
+        primaryLink={website?.primaryLink}
+        secondaryLink={website?.secondaryLink}
       />
 
       <FeaturesSection
-        title={featuresSection.title}
-        description={featuresSection.description}
-        features={featuresList}
+        title={website?.featuresSection?.title}
+        description={website?.featuresSection?.description}
+        features={features}
       />
 
       <ServicesSection
-        title={servicesSection.title}
-        description={servicesSection.description}
+        title={website?.servicesSection?.title}
+        description={website?.servicesSection?.description}
         services={servicesList}
       />
 
       <TeamsSection
-        title={teamsSection.title}
-        description={teamsSection.description}
+        title={website?.teamsSection?.title}
+        description={website?.teamsSection?.description}
         teams={teamsList}
       />
 
       <WorksSection
-        title={worksSection.title}
-        description={worksSection.description}
+        title={website?.worksSection?.title}
+        description={website?.worksSection?.description}
         works={worksList}
       />
 
       <ReviewsSection
-        title={reviewsSection.title}
-        description={reviewsSection.description}
+        title={website?.reviewsSection?.title}
+        description={website?.reviewsSection?.description}
         reviews={reviewsList}
       />
 
       <PricingSection
-        title={pricingSection.title}
-        description={pricingSection.description}
+        title={website?.pricingSection?.title}
+        description={website?.pricingSection?.description}
         plans={plansList}
       />
 
       <FaqSection
-        title={faqSection.title}
-        description={faqSection.description}
+        title={website?.faqSection?.title}
+        description={website?.faqSection?.description}
         faqs={faqsList}
       />
     </Box>

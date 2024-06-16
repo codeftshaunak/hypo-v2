@@ -1,7 +1,9 @@
-export type FeatureItem = {
+import { AssetType, ColorType } from "./hygraph";
+
+export type FeatureType = {
+  id: string;
   title: string;
   description: string;
-  href?: string;
-  thumbnailUrl: string;
-  themeColor: string;
+  thumbnail: AssetType;
+  themeColor: ColorType;
 };

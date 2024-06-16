@@ -9,8 +9,8 @@ import TeamCard from "./team-card";
 
 type Props = {
   teams: TeamMember[];
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 } & Omit<SectionProps, "children">;
 
 const responsive: ResponsiveType = {
