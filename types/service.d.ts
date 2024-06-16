@@ -1,7 +1,6 @@
-import { IconType } from "react-icons";
-
-export type ServiceItem = {
+export type ServiceType = {
+  id: string;
   title: string;
-  icon: IconType;
   description: string;
+  icon?: string;
 };
