@@ -1,6 +1,10 @@
-import { LinkType, SectionHeaderType, SEOType } from "./hygraph";
+import { AssetType, LinkType, SectionHeaderType, SEOType } from "./hygraph";
 
 export type WebsiteType = {
+  title: string;
+  description: string;
+  logoText: string;
+  logo: AssetType;
   heroSection: SectionHeaderType;
   featuresSection: SectionHeaderType;
   servicesSection: SectionHeaderType;

@@ -1,6 +1,14 @@
 export const getWebsiteQuery = (id: string) => `
 query Website {
   website(where: {id: "${id}"}) {
+    title
+    logoText
+    logo {
+      width
+      height
+      url
+    }
+    description
     heroSection {
       title
       description

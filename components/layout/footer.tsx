@@ -11,15 +11,17 @@ import {
 
 import { Link, LinkProps } from "@saas-ui/react";
 
-import siteConfig from "data/config";
+import { WebsiteType } from "types/website";
+import { getLinkHref } from "utils/get-link-href";
 import { Logo } from "./logo";
 
 export interface FooterProps extends BoxProps {
   columns?: number;
+  website: WebsiteType;
 }
 
 export const Footer: React.FC<FooterProps> = (props) => {
-  const { columns = 2, ...rest } = props;
+  const { columns = 2, website, ...rest } = props;
   return (
     <Box bg="white" _dark={{ bg: "gray.900" }} {...rest}>
       <Container maxW="container.2xl" px="8" py="8">
@@ -29,20 +31,22 @@ export const Footer: React.FC<FooterProps> = (props) => {
           maxWidth={{ base: "100%", lg: "50%" }}
         >
           <Flex>
-            <Logo />
+            <Logo title={website.footerSection?.title} logo={website.logo} />
           </Flex>
           <Text fontSize="md" color="muted">
-            {siteConfig.footer.description}
+            {website.footerSection?.description}
           </Text>
         </Stack>
         <SimpleGrid columns={columns}>
           <Stack spacing="8">
-            <Copyright>{siteConfig.footer.copyright}</Copyright>
+            <Copyright>
+              Built by <Link href="/">{website.title}</Link>
+            </Copyright>
           </Stack>
           <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
-            {siteConfig.footer?.links?.map(({ href, label }) => (
-              <FooterLink key={href} href={href}>
-                {label}
+            {website.footerLinks?.map((link, index) => (
+              <FooterLink key={index} href={getLinkHref(link)}>
+                {link.title}
               </FooterLink>
             ))}
           </HStack>
