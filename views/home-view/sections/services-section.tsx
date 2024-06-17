@@ -1,12 +1,13 @@
 import { Heading } from "@chakra-ui/react";
 
 import { Features } from "components/features";
-import { ServiceItem } from "types/service";
+import { getServiceIcon } from "components/icons";
+import { ServiceType } from "types/service";
 
 type Props = {
-  services: ServiceItem[];
-  title: string;
-  description: string;
+  services: ServiceType[];
+  title?: string;
+  description?: string;
 };
 
 export const ServicesSection = (props: Props) => {
@@ -29,7 +30,11 @@ export const ServicesSection = (props: Props) => {
       align="left"
       columns={[1, 2, 3]}
       iconSize={4}
-      features={services.map((s) => ({ ...s, variant: "left-icon" }))}
+      features={services.map((s) => ({
+        ...s,
+        variant: "left-icon",
+        icon: getServiceIcon(s.icon as any).icon,
+      }))}
     />
   );
 };

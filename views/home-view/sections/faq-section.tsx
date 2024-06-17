@@ -1,9 +1,10 @@
 import { Faq } from "components/faq";
+import { FAQType } from "types/faq";
 
 type Props = {
-  faqs: any[];
-  title: string;
-  description: string;
+  faqs: FAQType[];
+  title?: string;
+  description?: string;
 };
 
 export const FaqSection = (props: Props) => {

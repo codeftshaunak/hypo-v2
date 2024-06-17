@@ -1,12 +1,9 @@
-export type SocialLink = {
-  key: string;
-  url: string;
-};
+import { AssetType, LinkType } from "./hygraph";
 
-export type TeamMember = {
+export type MemberType = {
   firstName: string;
   lastName: string;
   position: string;
-  photoUrl: string;
-  links: SocialLink[];
+  avatar: AssetType;
+  externalLinks: LinkType[];
 };

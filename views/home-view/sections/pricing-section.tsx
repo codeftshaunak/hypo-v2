@@ -6,8 +6,8 @@ import { Pricing } from "components/pricing/pricing";
 
 type Props = {
   plans: any[];
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 };
 
 export const PricingSection = (props: Props) => {

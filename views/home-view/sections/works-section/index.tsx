@@ -2,21 +2,21 @@ import { Section, SectionProps, SectionTitle } from "components/section";
 
 import { Grid, GridItem } from "@chakra-ui/react";
 import "react-multi-carousel/lib/styles.css";
-import { WorkItem } from "types/work";
+import { ProjectType } from "types/work";
 import Work from "./work-card";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  works: WorkItem[];
-  title: string;
-  description: string;
+  projects: ProjectType[];
+  title?: string;
+  description?: string;
 } & Omit<SectionProps, "children">;
 
 // ----------------------------------------------------------------------
 
 export const WorksSection = (props: Props) => {
-  const { works, title, description, ...rest } = props;
+  const { projects, title, description, ...rest } = props;
 
   return (
     <Section id="works" {...rest}>
@@ -31,7 +31,7 @@ export const WorksSection = (props: Props) => {
         }}
         gap={6}
       >
-        {works.map((work, index) => (
+        {projects.map((work, index) => (
           <GridItem key={work.title}>
             <Work project={work} index={index} />
           </GridItem>

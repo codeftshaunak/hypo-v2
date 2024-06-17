@@ -1,17 +1,42 @@
-import { Box, Flex, IconButton, Link, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  IconButton,
+  Link,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { getSocialIcon } from "components/icons";
 import { MotionBox } from "components/motion/box";
-import { getSocialIcon } from "data/icons";
+import { Variants } from "framer-motion";
 import Image from "next/image";
-import { TeamMember } from "types/team";
+import { MemberType } from "types/team";
+import { getLinkHref } from "utils/get-link-href";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  member: TeamMember;
+  member: MemberType;
 };
+
+const detailsVariants: Variants = {
+  show: { opacity: 1, translateY: 0 },
+  hide: { opacity: 0, translateY: 100 },
+};
+
+// ----------------------------------------------------------------------
 
 const TeamCard = (props: Props) => {
   const { member } = props;
+
+  const whileInView = useBreakpointValue(
+    {
+      base: "showButton",
+      md: undefined,
+    },
+    { ssr: true }
+  );
 
   const memberDetails = (
     <>
@@ -23,18 +48,18 @@ const TeamCard = (props: Props) => {
       </Text>
 
       <Flex alignItems={"center"} justifyContent={"center"} gap={1} mt={3}>
-        {member.links.map((link) => {
-          const iconDetails = getSocialIcon(link.key);
+        {member.externalLinks.map((link) => {
+          const iconDetails = getSocialIcon(link.icon);
 
           if (!iconDetails) return null;
 
           return (
             <IconButton
-              key={link.key}
-              aria-label={link.key}
+              key={link.title}
+              aria-label={link.title}
               icon={<iconDetails.icon color={iconDetails.color} size={18} />}
               as={Link}
-              href={link.url}
+              href={getLinkHref(link)}
               target="_blank"
             />
           );
@@ -45,9 +70,9 @@ const TeamCard = (props: Props) => {
 
   return (
     <MotionBox
-      initial={"initial"}
-      whileHover={"hover"}
-      whileInView={"inview"}
+      initial={"hide"}
+      whileHover={"show"}
+      whileInView={whileInView}
       sx={{
         position: "relative",
         aspectRatio: 9 / 12,
@@ -56,11 +81,10 @@ const TeamCard = (props: Props) => {
         borderRadius: 10,
         overflow: "hidden",
       }}
-      className="team-card"
-      animate={"initial"}
+      animate={"hide"}
     >
       <Image
-        src={member.photoUrl}
+        src={member.avatar.url}
         alt={member.firstName}
         fill
         style={{ objectFit: "cover", userSelect: "none" }}
@@ -76,15 +100,7 @@ const TeamCard = (props: Props) => {
         }}
       >
         <MotionBox
-          variants={{
-            hover: { opacity: 1, translateY: 0 },
-            initial: { opacity: 0, translateY: 100 },
-            transition: {
-              type: "spring",
-              bounce: 0.4,
-              duration: 0.8,
-            },
-          }}
+          variants={detailsVariants}
           layout
           sx={{
             backgroundColor: "background",
@@ -95,38 +111,6 @@ const TeamCard = (props: Props) => {
           }}
           as={Stack}
           spacing={0.5}
-          display={{
-            base: "none",
-            md: "flex",
-          }}
-        >
-          {memberDetails}
-        </MotionBox>
-
-        <MotionBox
-          variants={{
-            inview: { opacity: 1, translateY: 0 },
-            initial: { opacity: 0, translateY: 100 },
-            transition: {
-              type: "spring",
-              bounce: 0.4,
-              duration: 0.8,
-            },
-          }}
-          layout
-          sx={{
-            backgroundColor: "background",
-            textAlign: "center",
-            py: 3,
-            px: 2,
-            borderRadius: 5,
-          }}
-          as={Stack}
-          spacing={0.5}
-          display={{
-            base: "flex",
-            md: "none",
-          }}
         >
           {memberDetails}
         </MotionBox>

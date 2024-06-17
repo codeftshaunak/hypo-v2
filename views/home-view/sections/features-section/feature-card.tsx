@@ -1,13 +1,11 @@
 import { Box, Card, CardBody, CardProps, Stack, Text } from "@chakra-ui/react";
-import { Link } from "@saas-ui/react";
 import Image from "next/image";
-import RouterLink from "routes/components/router-link";
-import { FeatureItem } from "types/feature";
+import { FeatureType } from "types/feature";
 import { alpha } from "utils/color";
 import { prefixZero } from "utils/number";
 
 type Props = {
-  feature: FeatureItem;
+  feature: FeatureType;
   index: number;
 } & CardProps;
 
@@ -17,8 +15,8 @@ export const FeatureCard = (props: Props) => {
     <Card
       p={{ base: 0, sm: 2 }}
       border={"2px"}
-      borderColor={feature.themeColor}
-      bgColor={alpha(feature.themeColor, 0.3)}
+      borderColor={feature.themeColor.hex}
+      bgColor={alpha(feature.themeColor.hex, 0.3)}
       {...rest}
     >
       <CardBody display={"flex"} flexDirection={"column"}>
@@ -31,7 +29,7 @@ export const FeatureCard = (props: Props) => {
           borderRadius={100}
           width={10}
           height={10}
-          borderColor={feature.themeColor}
+          borderColor={feature.themeColor.hex}
           mb={10}
         >
           {prefixZero(index)}
@@ -51,7 +49,7 @@ export const FeatureCard = (props: Props) => {
           dangerouslySetInnerHTML={{ __html: feature.description }}
         />
 
-        {feature?.href && (
+        {/* {feature?.href && (
           <Link
             as={RouterLink}
             href={feature.href}
@@ -60,13 +58,19 @@ export const FeatureCard = (props: Props) => {
           >
             Learn More
           </Link>
-        )}
+        )} */}
 
-        <Stack justifyContent={"flex-end"} px={5} flex={1} mt={10}>
-          <Box position={"relative"} aspectRatio={320 / 250} width={"100%"}>
-            <Image src={feature.thumbnailUrl} alt={feature.title} fill />
-          </Box>
-        </Stack>
+        {feature.thumbnail && (
+          <Stack justifyContent={"flex-end"} px={5} flex={1} mt={10}>
+            <Box
+              position={"relative"}
+              aspectRatio={feature.thumbnail.width / feature.thumbnail.height}
+              width={"100%"}
+            >
+              <Image src={feature.thumbnail.url} alt={feature.title} fill />
+            </Box>
+          </Stack>
+        )}
       </CardBody>
     </Card>
   );
