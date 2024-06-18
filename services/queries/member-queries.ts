@@ -11,6 +11,7 @@ query Members {
       path
       text
       newTab
+      icon
     }
     avatar {
       width
