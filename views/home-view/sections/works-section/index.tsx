@@ -26,13 +26,13 @@ export const WorksSection = (props: Props) => {
         templateColumns={{
           base: "repeat(1, 1fr)",
           md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
-          "2xl": "repeat(4, 1fr)",
+          lg: "repeat(2, 1fr)",
+          "2xl": "repeat(3, 1fr)",
         }}
-        gap={6}
+        gap={4}
       >
-        {projects.map((work, index) => (
-          <GridItem key={work.title}>
+        {[...projects].map((work, index) => (
+          <GridItem key={`${work.id}-${index}`}>
             <Work project={work} index={index} />
           </GridItem>
         ))}

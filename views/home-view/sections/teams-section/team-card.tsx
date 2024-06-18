@@ -32,7 +32,7 @@ const TeamCard = (props: Props) => {
 
   const whileInView = useBreakpointValue(
     {
-      base: "showButton",
+      base: "show",
       md: undefined,
     },
     { ssr: true }
