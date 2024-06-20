@@ -45,7 +45,11 @@ export const Footer: React.FC<FooterProps> = (props) => {
           </Stack>
           <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
             {website?.footerLinks?.map((link, index) => (
-              <FooterLink key={index} href={getLinkHref(link)}>
+              <FooterLink
+                key={index}
+                href={getLinkHref(link)}
+                target={link?.newTab ? "_blank" : undefined}
+              >
                 {link.title}
               </FooterLink>
             ))}

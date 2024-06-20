@@ -34,14 +34,14 @@ const Home: NextPage<Props> = (props) => {
   return (
     <Box>
       <SEO
-        title={website.seo.title}
-        description={website.seo.description}
-        titleTemplate={website.title}
-        canonical={website.seo.url}
+        title={website.seo?.title}
+        description={website.seo?.description}
+        titleTemplate={website?.title}
+        canonical={website.seo?.url}
         openGraph={{
-          title: website.seo.openGraph.title,
-          description: website.seo.openGraph.description,
-          url: website.seo.openGraph.url,
+          title: website.seo.openGraph?.title,
+          description: website.seo.openGraph?.description,
+          url: website.seo.openGraph?.url,
           images:
             website.seo.openGraph?.images?.map((image) => ({
               url: image.url,

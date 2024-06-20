@@ -55,6 +55,7 @@ const Navigation: React.FC<Props> = (props) => {
                   (link?.url && !!router.asPath.match(new RegExp(link.url)))
                 )
               }
+              target={link?.newTab ? "_blank" : undefined}
             >
               {link.title}
             </NavLink>

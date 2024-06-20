@@ -132,6 +132,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                           href={getLinkHref(link)}
                           key={i}
                           label={link.title}
+                          target={link?.newTab ? "_blank" : undefined}
                         >
                           {link.title}
                         </NavLink>

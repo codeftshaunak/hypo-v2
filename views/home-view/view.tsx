@@ -1,7 +1,5 @@
 import { Box } from "@chakra-ui/react";
 
-import { plansList } from "data/home";
-
 import { FAQType } from "types/faq";
 import { FeatureType } from "types/feature";
 import { ReviewType } from "types/review";
@@ -12,7 +10,6 @@ import { ProjectType } from "types/work";
 import { FaqSection } from "./sections/faq-section";
 import { FeaturesSection } from "./sections/features-section";
 import { HeroSection } from "./sections/hero-section";
-import { PricingSection } from "./sections/pricing-section";
 import { ReviewsSection } from "./sections/reviews-sections";
 import { ServicesSection } from "./sections/services-section";
 import { TeamsSection } from "./sections/teams-section/index";
@@ -73,11 +70,11 @@ const HomeView = (props: Props) => {
         reviews={reviews}
       />
 
-      <PricingSection
+      {/* <PricingSection
         title={website?.pricingSection?.title}
         description={website?.pricingSection?.description}
         plans={plansList}
-      />
+      /> */}
 
       <FaqSection
         title={website?.faqSection?.title}

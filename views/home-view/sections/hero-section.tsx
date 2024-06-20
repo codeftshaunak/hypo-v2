@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Icon, Stack } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Icon, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 
 import { BackgroundGradient } from "components/gradients/background-gradient";
@@ -6,7 +6,7 @@ import { Hero } from "components/hero";
 import { FallInPlace } from "components/motion/fall-in-place";
 import { FiArrowRight } from "react-icons/fi";
 
-import { ButtonLink } from "components/button-link/button-link";
+import Link from "next/link";
 import { LinkType } from "types/hygraph";
 import { getLinkHref } from "utils/get-link-href";
 
@@ -32,31 +32,42 @@ export const HeroSection = (props: Props) => {
   } = props;
 
   const renderPrimaryLink = primaryLink?.title && (
-    <ButtonLink
-      colorScheme="primary"
-      size="lg"
+    <Link
       href={getLinkHref(primaryLink)}
-      rightIcon={
-        <Icon
-          as={FiArrowRight}
-          sx={{
-            transitionProperty: "common",
-            transitionDuration: "normal",
-            ".chakra-button:hover &": {
-              transform: "translate(5px)",
-            },
-          }}
-        />
-      }
+      target={primaryLink?.newTab ? "_blank" : undefined}
+      passHref
     >
-      {primaryLink.title}
-    </ButtonLink>
+      <Button
+        colorScheme="primary"
+        size="lg"
+        rightIcon={
+          <Icon
+            as={FiArrowRight}
+            sx={{
+              transitionProperty: "common",
+              transitionDuration: "normal",
+              ".chakra-button:hover &": {
+                transform: "translate(5px)",
+              },
+            }}
+          />
+        }
+      >
+        {primaryLink.title}
+      </Button>
+    </Link>
   );
 
   const renderSecondaryLink = secondaryLink?.title && (
-    <ButtonLink size="lg" href={getLinkHref(secondaryLink)} variant="outline">
-      {secondaryLink.title}
-    </ButtonLink>
+    <Link
+      href={getLinkHref(secondaryLink)}
+      target={secondaryLink?.newTab ? "_blank" : undefined}
+      passHref
+    >
+      <Button size="lg" variant="outline">
+        {secondaryLink.title}
+      </Button>
+    </Link>
   );
 
   return (
