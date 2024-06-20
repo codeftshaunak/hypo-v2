@@ -67,6 +67,7 @@ const WorkCard = (props: Props) => {
       initial={"hide"}
       whileHover={"show"}
       whileInView={whileInView}
+      rounded={"2xl"}
       sx={{ overflow: "hidden", position: "relative" }}
     >
       <Box
@@ -122,10 +123,10 @@ const WorkCard = (props: Props) => {
         )} */}
       </Box>
       <CardBody>
-        <Text fontSize={"xl"} fontWeight={"bold"} mb={1}>
+        <Text fontSize={"xl"} fontWeight={"bold"} mb={1} noOfLines={1}>
           {project.title}
         </Text>
-        <Text fontSize={"md"} opacity={0.8} fontWeight={"medium"}>
+        <Text fontSize={"md"} opacity={0.8} fontWeight={"medium"} noOfLines={3}>
           {project.description}
         </Text>
       </CardBody>
@@ -164,6 +165,7 @@ const WorkCard = (props: Props) => {
               href={project.reference}
               target="_blank"
               variant={"solid"}
+              size={"md"}
             />
           </MotionBox>
         )}
