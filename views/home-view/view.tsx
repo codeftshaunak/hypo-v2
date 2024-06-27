@@ -7,6 +7,7 @@ import { ServiceType } from "types/service";
 import { MemberType } from "types/team";
 import { WebsiteType } from "types/website";
 import { ProjectType } from "types/work";
+import ContactSection from "./sections/contact-section";
 import { FaqSection } from "./sections/faq-section";
 import { FeaturesSection } from "./sections/features-section";
 import { HeroSection } from "./sections/hero-section";
@@ -81,6 +82,8 @@ const HomeView = (props: Props) => {
         description={website?.faqSection?.description}
         faqs={faqs}
       />
+
+      <ContactSection />
     </Box>
   );
 };

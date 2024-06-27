@@ -10,7 +10,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { header, footer, website } = pageProps;
 
   return (
-    <SaasProvider theme={theme}>
+    <SaasProvider
+      theme={theme}
+      toastOptions={{ defaultOptions: { position: "top-right", size: "sm" } }}
+    >
       <AuthProvider>
         <Layout
           headerProps={{ ...header, website }}
