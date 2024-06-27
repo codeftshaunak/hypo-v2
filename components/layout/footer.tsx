@@ -11,6 +11,7 @@ import {
 
 import { Link, LinkProps } from "@saas-ui/react";
 
+import RouterLink from "routes/components/router-link";
 import { WebsiteType } from "types/website";
 import { getLinkHref } from "utils/get-link-href";
 import { Logo } from "./logo";
@@ -84,11 +85,12 @@ export const FooterLink: React.FC<LinkProps> = (props) => {
   const { children, ...rest } = props;
   return (
     <Link
+      as={RouterLink}
       color="muted"
       fontSize="sm"
       textDecoration="none"
       _hover={{
-        color: "white",
+        textDecoration: "underline",
         transition: "color .2s ease-in",
       }}
       {...rest}

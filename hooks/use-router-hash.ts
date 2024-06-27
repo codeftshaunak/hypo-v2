@@ -23,7 +23,10 @@ const getHash = (): string | null | undefined => {
  * if value is undefined means value is loading
  * @returns {string | null | undefined}
  */
-const useHash = (): [string | null | undefined, (hash: string) => void] => {
+const useRouterHash = (): [
+  string | null | undefined,
+  (hash: string) => void
+] => {
   const [isClient, setIsClient] = useState(false);
   const [hash, setHash] = useState<string | null | undefined>(getHash());
 
@@ -48,4 +51,4 @@ const useHash = (): [string | null | undefined, (hash: string) => void] => {
   return [isClient ? hash : undefined, updateHash];
 };
 
-export default useHash;
+export default useRouterHash;

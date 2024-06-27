@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { Form } from "@saas-ui/forms/zod";
 import { FormLayout, SubmitButton } from "@saas-ui/react";
-import useHash from "hooks/use-hash";
+import useRouterQuery from "hooks/use-router-query";
 import { sendMessage } from "services/contact-service";
 import { contactSchema, ContactType } from "./contact-config";
 import ContactForm from "./contact-form";
@@ -24,10 +24,10 @@ type Props = {};
 // ----------------------------------------------------------------------
 
 const ContactSection = (props: Props) => {
-  const [hash, setHash] = useHash();
+  const [showContact, setShowContact] = useRouterQuery("show_contact");
   const toast = useToast();
 
-  const handleClose = () => setHash("");
+  const handleClose = () => setShowContact(null);
 
   const handleSubmit = async (values: ContactType) => {
     const response = await sendMessage(
@@ -56,7 +56,7 @@ const ContactSection = (props: Props) => {
 
   return (
     <Modal
-      isOpen={hash === "#contact"}
+      isOpen={showContact === "true"}
       onClose={handleClose}
       size={"xl"}
       isCentered
