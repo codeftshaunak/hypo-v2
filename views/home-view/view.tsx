@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
+import MessengerCustomerChat from "react-messenger-customer-chat";
 import { FAQType } from "types/faq";
 import { FeatureType } from "types/feature";
 import { ReviewType } from "types/review";
@@ -84,6 +85,14 @@ const HomeView = (props: Props) => {
       />
 
       <ContactSection />
+
+      {window !== undefined && (
+        <MessengerCustomerChat
+          pageId={process.env.NEXT_PUBLIC_FB_APP_ID}
+          appId={process.env.NEXT_PUBLIC_FB_PAGE_ID}
+          // htmlRef="<REF_STRING>"
+        />
+      )}
     </Box>
   );
 };
