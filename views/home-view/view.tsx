@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
+import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { FAQType } from "types/faq";
 import { FeatureType } from "types/feature";
 import { ReviewType } from "types/review";
@@ -84,6 +85,11 @@ const HomeView = (props: Props) => {
       />
 
       <ContactSection />
+
+      <TawkMessengerReact
+        propertyId={process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID}
+        widgetId={process.env.NEXT_PUBLIC_TAWK_WIDGET_ID}
+      />
     </Box>
   );
 };
