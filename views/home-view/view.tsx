@@ -86,13 +86,11 @@ const HomeView = (props: Props) => {
 
       <ContactSection />
 
-      {window !== undefined && (
-        <MessengerCustomerChat
-          pageId={process.env.NEXT_PUBLIC_FB_APP_ID}
-          appId={process.env.NEXT_PUBLIC_FB_PAGE_ID}
-          // htmlRef="<REF_STRING>"
-        />
-      )}
+      <MessengerCustomerChat
+        pageId={process.env.NEXT_PUBLIC_FB_APP_ID}
+        appId={process.env.NEXT_PUBLIC_FB_PAGE_ID}
+        // htmlRef="<REF_STRING>"
+      />
     </Box>
   );
 };
