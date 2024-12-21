@@ -1,3 +1,7 @@
 .calendly-overlay .calendly-popup {
   max-height: 750px !important;
+
+  iframe {
+    color-scheme: auto;
+  }
 }
