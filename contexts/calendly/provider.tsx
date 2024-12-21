@@ -1,6 +1,6 @@
 "use client";
 import { useColorMode, useTheme, useToken } from "@chakra-ui/system";
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { PopupModal } from "react-calendly";
 import { CalendlyContext, ICalendlyContext } from "./context";
 
@@ -30,6 +30,16 @@ const CalendlyProvider = (props: Props) => {
     }),
     [isOpen]
   );
+
+  // ----------------------------------------------------------------------
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.setAttribute("data-scroll-locked", "1");
+    } else {
+      document.body.removeAttribute("data-scroll-locked");
+    }
+  }, [isOpen]);
 
   return (
     <CalendlyContext.Provider value={value}>
