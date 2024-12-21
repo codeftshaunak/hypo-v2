@@ -63,7 +63,11 @@ export const Header = (props: HeaderProps) => {
               }
             }}
           />
-          <Navigation navLinks={website?.navigationLinks} />
+          <Navigation
+            navLinks={website?.navigationLinks}
+            logo={website?.logo}
+            title={website?.logoText}
+          />
         </Flex>
       </Container>
     </Box>

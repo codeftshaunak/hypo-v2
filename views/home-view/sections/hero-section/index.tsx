@@ -1,14 +1,13 @@
-import { Box, Button, Container, Flex, Icon, Stack } from "@chakra-ui/react";
+import { Box, Container, Flex, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 
 import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Hero } from "components/hero";
 import { FallInPlace } from "components/motion/fall-in-place";
-import { FiArrowRight } from "react-icons/fi";
 
-import Link from "next/link";
 import { LinkType } from "types/hygraph";
-import { getLinkHref } from "utils/get-link-href";
+import PrimaryCTA from "./primary-cta";
+import SecondaryCTA from "./secondary-cta";
 
 // ----------------------------------------------------------------------
 
@@ -30,45 +29,6 @@ export const HeroSection = (props: Props) => {
     imageUrl,
     imageRatio,
   } = props;
-
-  const renderPrimaryLink = primaryLink?.title && (
-    <Link
-      href={getLinkHref(primaryLink)}
-      target={primaryLink?.newTab ? "_blank" : undefined}
-      passHref
-    >
-      <Button
-        colorScheme="primary"
-        size="lg"
-        rightIcon={
-          <Icon
-            as={FiArrowRight}
-            sx={{
-              transitionProperty: "common",
-              transitionDuration: "normal",
-              ".chakra-button:hover &": {
-                transform: "translate(5px)",
-              },
-            }}
-          />
-        }
-      >
-        {primaryLink.title}
-      </Button>
-    </Link>
-  );
-
-  const renderSecondaryLink = secondaryLink?.title && (
-    <Link
-      href={getLinkHref(secondaryLink)}
-      target={secondaryLink?.newTab ? "_blank" : undefined}
-      passHref
-    >
-      <Button size="lg" variant="outline">
-        {secondaryLink.title}
-      </Button>
-    </Link>
-  );
 
   return (
     <Box position="relative" overflow="hidden">
@@ -99,8 +59,8 @@ export const HeroSection = (props: Props) => {
                 alignItems="center"
                 flexWrap={"wrap"}
               >
-                {renderPrimaryLink}
-                {renderSecondaryLink}
+                {primaryLink && <PrimaryCTA data={primaryLink} />}
+                {secondaryLink && <SecondaryCTA data={secondaryLink} />}
               </Flex>
             </FallInPlace>
           </Hero>

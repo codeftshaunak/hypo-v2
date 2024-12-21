@@ -12,16 +12,18 @@ import { useScrollSpy } from "hooks/use-scrollspy";
 import { useDisclosure, useUpdateEffect } from "@chakra-ui/react";
 import { MobileNavButton, MobileNavContent } from "components/mobile-nav";
 
-import { LinkType } from "types/hygraph";
+import { AssetType, LinkType } from "types/hygraph";
 import { getLinkHref } from "utils/get-link-href";
 import ThemeToggle from "./theme-toggle";
 
 type Props = {
   navLinks: LinkType[];
+  logo?: AssetType;
+  title?: string;
 };
 
 const Navigation: React.FC<Props> = (props) => {
-  const { navLinks } = props;
+  const { navLinks, logo, title } = props;
 
   const mobileNav = useDisclosure();
   const router = useRouter();
@@ -74,6 +76,8 @@ const Navigation: React.FC<Props> = (props) => {
         navLinks={navLinks}
         isOpen={mobileNav.isOpen}
         onClose={mobileNav.onClose}
+        logo={logo}
+        title={title}
       />
     </HStack>
   );
