@@ -1,5 +1,7 @@
 import { Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
 import { Link } from "@saas-ui/react";
+import Image from "next/image";
+import { AssetType } from "types/hygraph";
 
 export interface LogoProps {
   href?: string;
@@ -7,9 +9,6 @@ export interface LogoProps {
   title?: string;
   logo?: AssetType;
 }
-
-import Image from "next/image";
-import { AssetType } from "types/hygraph";
 
 export const Logo = (props: LogoProps) => {
   const { href, logo, onClick, title } = props;

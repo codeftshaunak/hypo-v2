@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { Form } from "@saas-ui/forms/zod";
 import { FormLayout, SubmitButton } from "@saas-ui/react";
+import { useCalendly } from "contexts/calendly";
 import useRouterQuery from "hooks/use-router-query";
 import { sendMessage } from "services/contact-service";
 import { contactSchema, ContactType } from "./contact-config";
@@ -25,6 +26,7 @@ type Props = {};
 
 const ContactSection = (props: Props) => {
   const [showContact, setShowContact] = useRouterQuery("show_contact");
+  const { onOpen } = useCalendly();
   const toast = useToast();
 
   const handleClose = () => setShowContact(null);
@@ -82,13 +84,18 @@ const ContactSection = (props: Props) => {
               <ContactForm />
             </ModalBody>
 
-            <ModalFooter gap={1}>
-              <Button size={"md"} onClick={handleClose}>
-                Cancel
-              </Button>
+            <ModalFooter
+              flexDirection={{ base: "column", sm: "row-reverse" }}
+              alignItems={{ base: "stretch", sm: "center" }}
+              justifyContent={{ sm: "end" }}
+              gap={{ base: 2, sm: 1 }}
+            >
               <SubmitButton size={"md"} colorScheme="primary" type="submit">
                 Send Message
               </SubmitButton>
+              <Button size={"md"} onClick={onOpen}>
+                Book A Meeting Instead
+              </Button>
             </ModalFooter>
           </FormLayout>
         </Form>

@@ -19,9 +19,10 @@ import * as React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RemoveScroll } from "react-remove-scroll";
 
-import { Link } from "@saas-ui/react";
+import { Link as UiLink } from "@saas-ui/react";
 import { Logo } from "components/layout/logo";
-import { LinkType } from "types/hygraph";
+import Link from "next/link";
+import { AssetType, LinkType } from "types/hygraph";
 import { getLinkHref } from "utils/get-link-href";
 
 interface NavLinkProps extends LinkProps {
@@ -38,8 +39,9 @@ function NavLink({ href, children, isActive, ...rest }: NavLinkProps) {
   isActive = isActive ?? pathname.includes(group);
 
   return (
-    <Link
+    <UiLink
       href={href}
+      as={Link}
       display="inline-flex"
       flex="1"
       minH="40px"
@@ -56,7 +58,7 @@ function NavLink({ href, children, isActive, ...rest }: NavLinkProps) {
       {...rest}
     >
       {children}
-    </Link>
+    </UiLink>
   );
 }
 
@@ -64,10 +66,12 @@ interface MobileNavContentProps {
   isOpen?: boolean;
   onClose?: () => void;
   navLinks: LinkType[];
+  logo?: AssetType;
+  title?: string;
 }
 
 export function MobileNavContent(props: MobileNavContentProps) {
-  const { isOpen, onClose = () => {}, navLinks } = props;
+  const { isOpen, onClose = () => {}, navLinks, logo, title } = props;
   const closeBtnRef = React.useRef<HTMLButtonElement>(null);
   const { pathname } = useRouter();
   const bgColor = useColorModeValue("whiteAlpha.900", "blackAlpha.900");
@@ -119,7 +123,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
             >
               <Box>
                 <Flex justify="space-between" px="8" pt="4" pb="4">
-                  <Logo />
+                  <Logo logo={logo} title={title} />
                   <HStack spacing="5">
                     <CloseButton ref={closeBtnRef} onClick={onClose} />
                   </HStack>
@@ -133,6 +137,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                           key={i}
                           label={link.title}
                           target={link?.newTab ? "_blank" : undefined}
+                          onClick={onClose}
                         >
                           {link.title}
                         </NavLink>

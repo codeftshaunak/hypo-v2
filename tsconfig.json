@@ -20,7 +20,8 @@
       "contentlayer/generated": ["./.contentlayer/generated"],
       "data/*": ["./data/*"],
       "components/*": ["./components/*"],
-      "hooks/*": ["./hooks/*"]
+      "hooks/*": ["./hooks/*"],
+      "contexts/*": ["contexts/*"]
     }
   },
   "include": [

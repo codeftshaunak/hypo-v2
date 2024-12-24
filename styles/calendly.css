@@ -1,0 +1,20 @@
+.calendly-overlay .calendly-popup {
+  max-height: 750px !important;
+
+  iframe {
+    color-scheme: auto;
+  }
+}
+
+body[data-scroll-locked] {
+  --removed-body-scroll-bar-size: 15px;
+  overflow: hidden !important;
+  overscroll-behavior: contain;
+  position: relative !important;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 15px !important;
+}
