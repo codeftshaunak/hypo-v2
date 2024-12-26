@@ -1,3 +1,5 @@
+import { getSocialIcon } from "@/components/icons";
+import { MotionBox } from "@/components/motion/box";
 import { MemberType } from "@/types/team";
 import { getLinkHref } from "@/utils/get-link-href";
 import {
@@ -9,8 +11,6 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { getSocialIcon } from "components/icons";
-import { MotionBox } from "components/motion/box";
 import { Variants } from "framer-motion";
 import Image from "next/image";
 

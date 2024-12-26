@@ -1,8 +1,8 @@
 "use client";
 
+import { useCalendly } from "@/contexts/calendly";
 import { LinkType } from "@/types/hygraph";
 import { Button, Icon } from "@chakra-ui/react";
-import { useCalendly } from "contexts/calendly";
 import { FiArrowRight } from "react-icons/fi";
 
 type Props = {

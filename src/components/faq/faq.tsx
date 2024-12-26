@@ -1,6 +1,6 @@
+import { Section, SectionProps, SectionTitle } from "@/components/section";
 import { FAQType } from "@/types/faq";
 import { chakra, SimpleGrid } from "@chakra-ui/react";
-import { Section, SectionProps, SectionTitle } from "components/section";
 
 interface FaqProps extends Omit<SectionProps, "title" | "children"> {
   title?: React.ReactNode;

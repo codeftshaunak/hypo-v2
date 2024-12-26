@@ -1,5 +1,5 @@
+import { Faq } from "@/components/faq";
 import { FAQType } from "@/types/faq";
-import { Faq } from "components/faq";
 
 type Props = {
   faqs: FAQType[];

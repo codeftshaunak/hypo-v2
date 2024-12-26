@@ -1,4 +1,4 @@
-import { Layout } from "components/layout";
+import { Layout } from "@/components/layout";
 import type { ReactNode } from "react";
 import "../styles/calendly.css";
 import Html from "./html";

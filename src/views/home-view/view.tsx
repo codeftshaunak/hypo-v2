@@ -2,6 +2,7 @@
 
 import { Box } from "@chakra-ui/react";
 
+import { SEO } from "@/components/seo";
 import { FAQType } from "@/types/faq";
 import { FeatureType } from "@/types/feature";
 import { ReviewType } from "@/types/review";
@@ -9,7 +10,6 @@ import { ServiceType } from "@/types/service";
 import { MemberType } from "@/types/team";
 import { WebsiteType } from "@/types/website";
 import { ProjectType } from "@/types/work";
-import { SEO } from "components/seo";
 import ContactSection from "./sections/contact-section";
 import { FaqSection } from "./sections/faq-section";
 import { FeaturesSection } from "./sections/features-section";

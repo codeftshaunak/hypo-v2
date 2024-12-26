@@ -1,3 +1,4 @@
+import { Section, SectionTitle, SectionTitleProps } from "@/components/section";
 import components from "@/theme/components";
 import {
   Box,
@@ -13,7 +14,6 @@ import {
   VStack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import { Section, SectionTitle, SectionTitleProps } from "components/section";
 import * as React from "react";
 
 const Revealer = ({ children }: any) => {

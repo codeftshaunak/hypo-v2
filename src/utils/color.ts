@@ -51,7 +51,7 @@ function decomposeColor(color: string): {
       `Unsupported \`${color}\` color. The following formats are supported: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla(), color().`
     );
   }
-  let value = color.substring(marker + 1, color.length - 1);
+  const value = color.substring(marker + 1, color.length - 1);
   let values: string[];
   let colorSpace;
   if (type === "color") {

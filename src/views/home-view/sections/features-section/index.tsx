@@ -1,6 +1,6 @@
+import { Section, SectionProps, SectionTitle } from "@/components/section";
 import { FeatureType } from "@/types/feature";
 import { Grid, GridItem } from "@chakra-ui/react";
-import { Section, SectionProps, SectionTitle } from "components/section";
 import { FeatureCard } from "./feature-card";
 
 // ----------------------------------------------------------------------

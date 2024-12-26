@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 
-import { Pricing } from "components/pricing/pricing";
+import { Pricing } from "@/components/pricing/pricing";
 
 // ----------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import { Section, SectionProps, SectionTitle } from "components/section";
+import { Section, SectionProps, SectionTitle } from "@/components/section";
 
 import { ProjectType } from "@/types/work";
 import { Grid, GridItem } from "@chakra-ui/react";

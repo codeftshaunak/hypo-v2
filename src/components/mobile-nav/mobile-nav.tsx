@@ -1,3 +1,4 @@
+import useRouteChanged from "@/hooks/use-route-changed";
 import {
   Box,
   CloseButton,
@@ -12,7 +13,6 @@ import {
   useUpdateEffect,
 } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import useRouteChanged from "hooks/use-route-changed";
 // import { getRoutes } from '@/layouts/mdx'
 import { usePathname } from "next/navigation";
 import * as React from "react";

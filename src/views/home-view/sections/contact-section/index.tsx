@@ -1,3 +1,5 @@
+import { useCalendly } from "@/contexts/calendly";
+import useRouterQuery from "@/hooks/use-router-query";
 import { sendMessage } from "@/services/contact-service";
 import {
   Button,
@@ -13,8 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { Form } from "@saas-ui/forms/zod";
 import { FormLayout, SubmitButton } from "@saas-ui/react";
-import { useCalendly } from "contexts/calendly";
-import useRouterQuery from "hooks/use-router-query";
 import { contactSchema, ContactType } from "./contact-config";
 import ContactForm from "./contact-form";
 

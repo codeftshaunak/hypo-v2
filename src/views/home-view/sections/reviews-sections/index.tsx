@@ -1,7 +1,7 @@
 import { Stack } from "@chakra-ui/react";
 import * as React from "react";
 
-import { Testimonials } from "components/testimonials";
+import { Testimonials } from "@/components/testimonials";
 
 import { ReviewType } from "@/types/review";
 import { ReviewCard } from "./review-card";

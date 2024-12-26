@@ -1,8 +1,8 @@
 import { Heading } from "@chakra-ui/react";
 
+import { Features } from "@/components/features";
+import { getServiceIcon } from "@/components/icons";
 import { ServiceType } from "@/types/service";
-import { Features } from "components/features";
-import { getServiceIcon } from "components/icons";
 
 type Props = {
   services: ServiceType[];

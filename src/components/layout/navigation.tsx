@@ -3,14 +3,14 @@ import * as React from "react";
 
 import { usePathname, useRouter } from "next/navigation";
 
-import siteConfig from "data/config";
+import siteConfig from "@/data/config";
 
 import { NavLink } from "@/components/nav-link";
 
-import { useScrollSpy } from "hooks/use-scrollspy";
+import { useScrollSpy } from "@/hooks/use-scrollspy";
 
+import { MobileNavButton, MobileNavContent } from "@/components/mobile-nav";
 import { useDisclosure, useUpdateEffect } from "@chakra-ui/react";
-import { MobileNavButton, MobileNavContent } from "components/mobile-nav";
 
 import { AssetType, LinkType } from "@/types/hygraph";
 import { getLinkHref } from "@/utils/get-link-href";

@@ -1,3 +1,4 @@
+import { MotionBox } from "@/components/motion/box";
 import { ProjectType } from "@/types/work";
 import {
   Box,
@@ -10,7 +11,6 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { MotionBox } from "components/motion/box";
 import { Variants } from "framer-motion";
 import Image from "next/image";
 import { FiExternalLink } from "react-icons/fi";

@@ -1,4 +1,4 @@
-import { Section, SectionProps, SectionTitle } from "components/section";
+import { Section, SectionProps, SectionTitle } from "@/components/section";
 
 import { MemberType } from "@/types/team";
 import Carousel, { ResponsiveType } from "react-multi-carousel";

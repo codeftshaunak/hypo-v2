@@ -1,9 +1,9 @@
 import { Box, Container, Flex, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 
-import { BackgroundGradient } from "components/gradients/background-gradient";
-import { Hero } from "components/hero";
-import { FallInPlace } from "components/motion/fall-in-place";
+import { BackgroundGradient } from "@/components/gradients/background-gradient";
+import { Hero } from "@/components/hero";
+import { FallInPlace } from "@/components/motion/fall-in-place";
 
 import { LinkType } from "@/types/hygraph";
 import PrimaryCTA from "./primary-cta";
