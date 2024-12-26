@@ -1,9 +1,8 @@
-import { Layout } from "@/components/layout";
+import { AppLayout } from "@/layouts";
 import { getWebsite } from "@/services/website-service";
 import { Metadata } from "next";
 import type { ReactNode } from "react";
 import "../styles/calendly.css";
-import Html from "./html";
 import { Providers } from "./providers";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -43,11 +42,38 @@ const RootLayout = async (props: Props) => {
   const website = response?.data;
 
   return (
-    <Html>
-      <Providers>
-        <Layout website={website || ({} as any)}>{children}</Layout>
-      </Providers>
-    </Html>
+    <html
+      lang="en"
+      style={{ scrollBehavior: "smooth" }}
+      suppressHydrationWarning
+    >
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="76x76"
+          href="/static/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/static/favicons/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/static/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/static/favicons/manifest.json" />
+        <meta name="theme-color" content="#171A1D" />
+      </head>
+      <body suppressHydrationWarning>
+        <Providers>
+          <AppLayout website={website || ({} as any)}>{children}</AppLayout>
+        </Providers>
+      </body>
+    </html>
   );
 };
 

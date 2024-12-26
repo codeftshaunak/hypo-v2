@@ -13,7 +13,7 @@ interface LayoutProps {
   website: WebsiteType;
 }
 
-export const Layout: React.FC<LayoutProps> = (props) => {
+const AppLayout: React.FC<LayoutProps> = (props) => {
   const { children, website } = props;
   return (
     <Box>
@@ -28,3 +28,5 @@ export const Layout: React.FC<LayoutProps> = (props) => {
     </Box>
   );
 };
+
+export default AppLayout;

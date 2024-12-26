@@ -19,7 +19,7 @@ import * as React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RemoveScroll } from "react-remove-scroll";
 
-import { Logo } from "@/components/layout/logo";
+import { Logo } from "@/layouts/app-layout/logo";
 import { AssetType, LinkType } from "@/types/hygraph";
 import { getLinkHref } from "@/utils/get-link-href";
 import { Link as UiLink } from "@saas-ui/react";
