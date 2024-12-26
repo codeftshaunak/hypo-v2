@@ -4,27 +4,27 @@ import { ReactNode } from "react";
 
 import { SkipNavContent, SkipNavLink } from "@chakra-ui/skip-nav";
 
-import { Footer, FooterProps } from "./footer";
-import { Header, HeaderProps } from "./header";
+import { WebsiteType } from "@/types/website";
+import { Footer } from "./footer";
+import { Header } from "./header";
 
 interface LayoutProps {
   children: ReactNode;
-  headerProps: HeaderProps;
-  footerProps: FooterProps;
+  website: WebsiteType;
 }
 
 export const Layout: React.FC<LayoutProps> = (props) => {
-  const { children, headerProps, footerProps } = props;
+  const { children, website } = props;
   return (
     <Box>
       <SkipNavLink>Skip to content</SkipNavLink>
       {/* <AnnouncementBanner {...announcementProps} /> */}
-      <Header {...headerProps} />
+      <Header website={website} />
       <Box as="main">
         <SkipNavContent />
         {children}
       </Box>
-      <Footer {...footerProps} />
+      <Footer website={website} />
     </Box>
   );
 };
