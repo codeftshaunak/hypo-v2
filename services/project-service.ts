@@ -1,11 +1,10 @@
+import { HYGRAPH_ENDPOINT } from "config/env";
 import { ApiResponseType } from "types/hygraph";
 import { ProjectType } from "types/work";
 import { asyncWrapper } from "./common";
 import { getProjectsQuery } from "./queries/project-queries";
 
 export const getProjects = asyncWrapper<ProjectType[]>(async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT as string;
-
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {

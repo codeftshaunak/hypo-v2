@@ -1,11 +1,10 @@
+import { HYGRAPH_ENDPOINT } from "config/env";
 import { FAQType } from "types/faq";
 import { ApiResponseType } from "types/hygraph";
 import { asyncWrapper } from "./common";
 import { getFAQsQuery } from "./queries/faq-queries";
 
 export const getFAQs = asyncWrapper<FAQType[]>(async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT as string;
-
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {

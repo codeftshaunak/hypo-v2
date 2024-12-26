@@ -1,20 +1,21 @@
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+"use client";
+
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 const useRouteChanged = (fn: () => void) => {
-  const router = useRouter()
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const previousPath = useRef<string | null>(null);
+
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      fn()
-      console.log('App is changing to: ', url)
+    const currentPath = `${pathname}?${searchParams.toString()}`;
+    if (previousPath.current && previousPath.current !== currentPath) {
+      fn();
+      console.log("App is changing to:", currentPath);
     }
+    previousPath.current = currentPath;
+  }, [pathname, searchParams, fn]);
+};
 
-    router.events.on('routeChangeComplete', handleRouteChange)
-
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events, fn])
-}
-
-export default useRouteChanged
+export default useRouteChanged;

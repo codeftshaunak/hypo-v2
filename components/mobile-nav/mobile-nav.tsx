@@ -14,7 +14,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import useRouteChanged from "hooks/use-route-changed";
 // import { getRoutes } from '@/layouts/mdx'
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import * as React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RemoveScroll } from "react-remove-scroll";

@@ -1,7 +1,7 @@
 import { HStack } from "@chakra-ui/react";
 import * as React from "react";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import siteConfig from "data/config";
 

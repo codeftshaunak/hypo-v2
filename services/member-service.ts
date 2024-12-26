@@ -1,11 +1,10 @@
+import { HYGRAPH_ENDPOINT } from "config/env";
 import { ApiResponseType } from "types/hygraph";
 import { MemberType } from "types/team";
 import { asyncWrapper } from "./common";
 import { getMembersQuery } from "./queries/member-queries";
 
 export const getMembers = asyncWrapper<MemberType[]>(async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT as string;
-
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {

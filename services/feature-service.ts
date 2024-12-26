@@ -1,11 +1,10 @@
+import { HYGRAPH_ENDPOINT } from "config/env";
 import { FeatureType } from "types/feature";
 import { ApiResponseType } from "types/hygraph";
 import { asyncWrapper } from "./common";
 import { getFeaturesQuery } from "./queries/feature-queries";
 
 export const getFeatures = asyncWrapper<FeatureType[]>(async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT as string;
-
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {

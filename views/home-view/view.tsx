@@ -1,6 +1,8 @@
+"use client";
+
 import { Box } from "@chakra-ui/react";
 
-import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
+import { SEO } from "components/seo";
 import { FAQType } from "types/faq";
 import { FeatureType } from "types/feature";
 import { ReviewType } from "types/review";
@@ -14,6 +16,7 @@ import { FeaturesSection } from "./sections/features-section";
 import { HeroSection } from "./sections/hero-section";
 import { ReviewsSection } from "./sections/reviews-sections";
 import { ServicesSection } from "./sections/services-section";
+import SupportInbox from "./sections/support-inbox";
 import { TeamsSection } from "./sections/teams-section/index";
 import { WorksSection } from "./sections/works-section";
 
@@ -33,6 +36,29 @@ const HomeView = (props: Props) => {
 
   return (
     <Box>
+      <SEO
+        title={website.seo?.title}
+        description={website.seo?.description}
+        titleTemplate={website?.title}
+        canonical={website.seo?.url}
+        openGraph={{
+          title: website.seo.openGraph?.title,
+          description: website.seo.openGraph?.description,
+          url: website.seo.openGraph?.url,
+          images:
+            website.seo.openGraph?.images?.map((image) => ({
+              url: image.url,
+              width: image.width,
+              height: image.height,
+            })) || [],
+          videos:
+            website.seo.openGraph?.videos?.map((video) => ({
+              url: video.url,
+              width: video.width,
+              height: video.height,
+            })) || [],
+        }}
+      />
       <HeroSection
         title={website?.heroSection?.title}
         description={website?.heroSection?.description}
@@ -86,10 +112,7 @@ const HomeView = (props: Props) => {
 
       <ContactSection />
 
-      <TawkMessengerReact
-        propertyId={process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID}
-        widgetId={process.env.NEXT_PUBLIC_TAWK_WIDGET_ID}
-      />
+      <SupportInbox />
     </Box>
   );
 };

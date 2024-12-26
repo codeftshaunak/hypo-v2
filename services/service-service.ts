@@ -1,11 +1,10 @@
+import { HYGRAPH_ENDPOINT } from "config/env";
 import { ApiResponseType } from "types/hygraph";
 import { ServiceType } from "types/service";
 import { asyncWrapper } from "./common";
 import { getServicesQuery } from "./queries/service-queries";
 
 export const getServices = asyncWrapper<ServiceType[]>(async () => {
-  const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT as string;
-
   const response = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {
