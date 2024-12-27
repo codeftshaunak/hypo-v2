@@ -4,9 +4,6 @@ import {
   CloseButton,
   Flex,
   HStack,
-  IconButton,
-  IconButtonProps,
-  LinkProps,
   Stack,
   useBreakpointValue,
   useColorModeValue,
@@ -16,49 +13,10 @@ import { AnimatePresence, motion } from "framer-motion";
 // import { getRoutes } from '@/layouts/mdx'
 import { AssetType, LinkType } from "@/types/hygraph";
 import { getLinkHref } from "@/utils/get-link-href";
-import { Link as UiLink } from "@saas-ui/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import * as React from "react";
-import { AiOutlineMenu } from "react-icons/ai";
 import { RemoveScroll } from "react-remove-scroll";
-import { Logo } from "./logo";
-interface NavLinkProps extends LinkProps {
-  label: string;
-  href?: string;
-  isActive?: boolean;
-}
-
-function NavLink({ href, children, isActive, ...rest }: NavLinkProps) {
-  const pathname = usePathname();
-  const bgActiveHoverColor = useColorModeValue("gray.100", "whiteAlpha.100");
-
-  const [, group] = href?.split("/") || [];
-  isActive = isActive ?? pathname.includes(group);
-
-  return (
-    <UiLink
-      href={href}
-      as={Link}
-      display="inline-flex"
-      flex="1"
-      minH="40px"
-      px="8"
-      py="3"
-      transition="0.2s all"
-      fontWeight={isActive ? "semibold" : "medium"}
-      borderColor={isActive ? "purple.400" : undefined}
-      borderBottomWidth="1px"
-      color={isActive ? "white" : undefined}
-      _hover={{
-        bg: isActive ? "purple.500" : bgActiveHoverColor,
-      }}
-      {...rest}
-    >
-      {children}
-    </UiLink>
-  );
-}
+import { Logo } from "../logo";
+import MobileNavLink from "./link";
 
 interface MobileNavContentProps {
   isOpen?: boolean;
@@ -71,7 +29,6 @@ interface MobileNavContentProps {
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose = () => {}, navLinks, logo, title } = props;
   const closeBtnRef = React.useRef<HTMLButtonElement>(null);
-  const pathname = usePathname();
   const bgColor = useColorModeValue("whiteAlpha.900", "blackAlpha.900");
 
   useRouteChanged(onClose);
@@ -130,7 +87,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   {Array.isArray(navLinks) &&
                     navLinks.map((link, i) => {
                       return (
-                        <NavLink
+                        <MobileNavLink
                           href={getLinkHref(link)}
                           key={i}
                           label={link.title}
@@ -138,7 +95,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                           onClick={onClose}
                         >
                           {link.title}
-                        </NavLink>
+                        </MobileNavLink>
                       );
                     })}
                 </Stack>
@@ -151,21 +108,4 @@ export function MobileNavContent(props: MobileNavContentProps) {
   );
 }
 
-export const MobileNavButton = React.forwardRef(
-  (props: IconButtonProps, ref: React.Ref<any>) => {
-    return (
-      <IconButton
-        ref={ref}
-        display={{ base: "flex", md: "none" }}
-        fontSize="20px"
-        color={useColorModeValue("gray.800", "inherit")}
-        variant="ghost"
-        icon={<AiOutlineMenu />}
-        {...props}
-        aria-label="Open menu"
-      />
-    );
-  }
-);
-
-MobileNavButton.displayName = "MobileNavButton";
+export default MobileNavContent;
