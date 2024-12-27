@@ -13,7 +13,7 @@ const OpenBtn = (props: Props) => {
     <Button
       variant={"ghost"}
       size={"icon"}
-      className="size-8 p-0"
+      className="size-8 p-0 lg:hidden"
       onClick={onOpen}
     >
       <LucideMenu className="!size-5" />
