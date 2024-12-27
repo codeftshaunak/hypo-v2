@@ -1,45 +1,18 @@
 import Link from "next/link";
+import { NavLink } from "../type";
 
-type Props = {};
-
-const links = [
-  {
-    id: "#features",
-    label: "Features",
-  },
-  {
-    id: "#services",
-    label: "Services",
-  },
-  {
-    id: "#teams",
-    label: "Teams",
-  },
-  {
-    id: "#works",
-    label: "Works",
-  },
-  {
-    id: "#reviews",
-    label: "Reviews",
-  },
-  {
-    id: "#faq",
-    label: "FAQ",
-  },
-  {
-    id: "#contact",
-    label: "Contact",
-  },
-];
+type Props = {
+  links: NavLink[];
+};
 
 const DesktopNav = (props: Props) => {
+  const { links } = props;
   return (
-    <ul className="flex items-center gap-9">
+    <ul className="hidden lg:flex items-center gap-9">
       {links.map((item) => (
-        <li key={item.id}>
+        <li key={item.path}>
           <Link
-            href={item.id}
+            href={item.path}
             className="text-[13px] font-medium text-muted-foreground hover:text-foreground duration-200"
           >
             {item.label}
