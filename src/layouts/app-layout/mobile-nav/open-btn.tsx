@@ -11,12 +11,12 @@ const OpenBtn = (props: Props) => {
   const { onOpen } = props;
   return (
     <Button
-      variant={"outline"}
+      variant={"ghost"}
       size={"icon"}
-      className="size-8"
+      className="size-8 p-0"
       onClick={onOpen}
     >
-      <LucideMenu />
+      <LucideMenu className="!size-5" />
     </Button>
   );
 };
