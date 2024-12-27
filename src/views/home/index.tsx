@@ -1,18 +1,22 @@
 import { FeatureType } from "@/types/feature";
 import { ServiceType } from "@/types/service";
+import { MemberType } from "@/types/team";
 import { WebsiteType } from "@/types/website";
+import "react-multi-carousel/lib/styles.css";
 import FeaturesSection from "./sections/features";
 import HeroSection from "./sections/hero";
 import ServicesSection from "./sections/services";
+import TeamsSection from "./sections/teams";
 
 type Props = {
   website: WebsiteType;
   features: FeatureType[];
   services: ServiceType[];
+  members: MemberType[];
 };
 
 const HomeView = (props: Props) => {
-  const { website, features, services } = props;
+  const { website, features, services, members } = props;
   return (
     <>
       <HeroSection
@@ -31,6 +35,11 @@ const HomeView = (props: Props) => {
         services={services}
         description={website.servicesSection.description}
         title={website.servicesSection.title}
+      />
+      <TeamsSection
+        teams={members}
+        description={website.teamsSection.description}
+        title={website.teamsSection.title}
       />
     </>
   );
