@@ -11,7 +11,7 @@ type Props = {
 const FeaturesSection = (props: Props) => {
   const { description, title, features } = props;
   return (
-    <SectionContainer className="max-w-6xl w-full">
+    <SectionContainer wrap>
       <SectionHeader title={title} text={description} centered />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((item, index) => (

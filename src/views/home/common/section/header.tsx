@@ -14,7 +14,7 @@ export const SectionHeader = (props: Props) => {
         <h3
           className={cn(
             centered ? "text-center" : "text-left",
-            "text-3xl font-bold mb-3"
+            "text-3xl font-bold mb-4"
           )}
         >
           {title}
