@@ -14,17 +14,15 @@ import {
 } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 // import { getRoutes } from '@/layouts/mdx'
-import { usePathname } from "next/navigation";
-import * as React from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { RemoveScroll } from "react-remove-scroll";
-
-import { Logo } from "@/layouts/app-layout/logo";
 import { AssetType, LinkType } from "@/types/hygraph";
 import { getLinkHref } from "@/utils/get-link-href";
 import { Link as UiLink } from "@saas-ui/react";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
+import * as React from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+import { RemoveScroll } from "react-remove-scroll";
+import { Logo } from "./logo";
 interface NavLinkProps extends LinkProps {
   label: string;
   href?: string;

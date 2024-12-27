@@ -1,17 +1,17 @@
 import { AssetType } from "@/types/hygraph";
 import { Flex, Heading, VisuallyHidden } from "@chakra-ui/react";
-import { Link } from "@saas-ui/react";
 import Image from "next/image";
+import LogoLink from "./link";
 
 export interface LogoProps {
   href?: string;
-  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   title?: string;
   logo?: AssetType;
+  scrollToTop?: boolean;
 }
 
 export const Logo = (props: LogoProps) => {
-  const { href, logo, onClick, title } = props;
+  const { href, logo, title, scrollToTop } = props;
 
   const renderLogo = logo ? (
     <Image
@@ -29,10 +29,10 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <Flex flexShrink="0" alignItems="flex-start">
-      <Link href={href} display="flex" borderRadius="sm" onClick={onClick}>
+      <LogoLink href={href} scrollToTop={scrollToTop}>
         {renderLogo}
         <VisuallyHidden>{title}</VisuallyHidden>
-      </Link>
+      </LogoLink>
     </Flex>
   );
 };

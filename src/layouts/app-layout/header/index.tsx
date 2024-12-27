@@ -15,20 +15,7 @@ export const Header = (props: HeaderProps) => {
     <HeaderContainer>
       <Container maxW="container.2xl" px="8" py="4">
         <Flex width="full" align="center" justify="space-between">
-          <Logo
-            logo={website?.logo}
-            title={website?.logoText}
-            onClick={(e) => {
-              if (window.location.pathname === "/") {
-                e.preventDefault();
-
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
-              }
-            }}
-          />
+          <Logo logo={website?.logo} title={website?.logoText} scrollToTop />
           <Navigation
             navLinks={website?.navigationLinks}
             logo={website?.logo}
