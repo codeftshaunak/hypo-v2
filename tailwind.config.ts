@@ -64,6 +64,11 @@ export default {
       fontFamily: {
         body: ['"Inter"', "sans-serif"],
       },
+      backgroundImage: {
+        hero: "radial-gradient(at top left, #4f1d9e 30%, transparent 80%), radial-gradient(at bottom, #2ab4d9 0%, transparent 60%), radial-gradient(at bottom left, hsl(var(--primary)) 0%, transparent 50%)",
+        "hero-child":
+          "linear-gradient(0deg, hsl(var(--background)) 60%, rgba(0, 0, 0, 0) 100%)",
+      },
     },
   },
   plugins: [animate],

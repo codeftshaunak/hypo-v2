@@ -13,7 +13,7 @@ const DesktopNav = (props: Props) => {
         <li key={item.path}>
           <Link
             href={item.path}
-            className="text-[13px] font-medium text-muted-foreground hover:text-foreground duration-200"
+            className="text-[13px] font-medium opacity-70 hover:opacity-100 duration-200"
           >
             {item.label}
           </Link>
