@@ -1,5 +1,6 @@
 "use client";
 
+import TawkChat from "@/components/common/tawk-chat";
 import theme from "@/theme";
 import { ColorModeScript } from "@chakra-ui/system";
 import { AuthProvider } from "@saas-ui/auth";
@@ -23,6 +24,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <AuthProvider>{children}</AuthProvider>
         </CalendlyProvider>
       </SaasProvider>
+      <TawkChat />
     </>
   );
 }

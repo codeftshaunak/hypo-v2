@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
+
+"use client";
+
 import dynamic from "next/dynamic";
 
 const TawkMessengerReact = dynamic(
-  () => import("@tawk.to/tawk-messenger-react").then((v) => v.default),
+  () => import("@tawk.to/tawk-messenger-react"),
   { ssr: false }
 );
 
-type Props = {};
-
-const SupportInbox = (props: Props) => {
+const TawkChat = () => {
   return (
     <TawkMessengerReact
       propertyId={process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID}
@@ -18,4 +19,4 @@ const SupportInbox = (props: Props) => {
   );
 };
 
-export default SupportInbox;
+export default TawkChat;
