@@ -1,13 +1,13 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
+import { LinkType } from "@/types/hygraph";
 import Link from "next/link";
 import Logo from "../logo";
-import { NavLink } from "../type";
 import CloseBtn from "./close-btn";
 
 type Props = {
   logoText: string;
-  links: NavLink[];
+  links: LinkType[];
   onClose: () => void;
   open: boolean;
 };
@@ -31,13 +31,14 @@ const MobileNavContent = (props: Props) => {
           {links.map((item, index, array) => (
             <li key={item.path}>
               <Link
-                href={item.path}
+                href={item.url || item.path || "#"}
                 className={cn(
                   "py-3 px-6 inline-block border-b w-full text-sm font-medium hover:bg-muted",
                   array.length === index + 1 ? "border-transparent" : ""
                 )}
+                title={item.title}
               >
-                {item.label}
+                {item.text || item.title}
               </Link>
             </li>
           ))}

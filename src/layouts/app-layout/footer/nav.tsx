@@ -15,8 +15,9 @@ const FooterNav = (props: Props) => {
             href={item.url || item.path || "#"}
             className="text-sm text-muted-foreground hover:text-foreground duration-200"
             target={item.newTab ? "_blank" : undefined}
+            title={item.title}
           >
-            {item.title}
+            {item.text || item.title}
           </Link>
         </li>
       ))}

@@ -12,7 +12,7 @@ const AppLayout = (props: Props) => {
   const { children, website } = props;
   return (
     <>
-      <Header />
+      <Header website={website} />
       {children}
       <Footer website={website} />
     </>

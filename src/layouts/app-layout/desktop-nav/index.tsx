@@ -1,21 +1,22 @@
+import { LinkType } from "@/types/hygraph";
 import Link from "next/link";
-import { NavLink } from "../type";
 
 type Props = {
-  links: NavLink[];
+  links: LinkType[];
 };
 
 const DesktopNav = (props: Props) => {
   const { links } = props;
   return (
     <ul className="hidden lg:flex items-center gap-9">
-      {links.map((item) => (
-        <li key={item.path}>
+      {links.map((item, index) => (
+        <li key={index}>
           <Link
-            href={item.path}
+            href={item.url || item.path || "#"}
             className="text-[13px] font-medium opacity-70 hover:opacity-100 duration-200"
+            title={item.title}
           >
-            {item.label}
+            {item.text || item.title}
           </Link>
         </li>
       ))}

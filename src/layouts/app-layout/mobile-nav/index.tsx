@@ -1,13 +1,13 @@
 "use client";
 
+import { LinkType } from "@/types/hygraph";
 import { useState } from "react";
-import { NavLink } from "../type";
 import MobileNavContent from "./content";
 import OpenBtn from "./open-btn";
 
 type Props = {
   logoText: string;
-  links: NavLink[];
+  links: LinkType[];
 };
 
 const MobileNav = (props: Props) => {
