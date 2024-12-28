@@ -17,6 +17,7 @@ type Props = {
 const WorkCard = (props: Props) => {
   const { project } = props;
   const { description, reference, technologies, thumbnail, title } = project;
+
   return (
     <MotionBox
       initial="hide"
