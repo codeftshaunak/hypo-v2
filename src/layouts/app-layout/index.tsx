@@ -14,7 +14,7 @@ const AppLayout = (props: Props) => {
     <>
       <Header />
       {children}
-      <Footer />
+      <Footer website={website} />
     </>
   );
 };
