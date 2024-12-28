@@ -1,3 +1,5 @@
+import ContactModal from "@/components/modals/contact";
+import { Toaster } from "@/components/ui/sonner";
 import AppLayout from "@/layouts/app-layout";
 import { getWebsite } from "@/services/website-service";
 import "@/styles/index.css";
@@ -21,6 +23,8 @@ const RootLayout = async (props: Props) => {
       <body className={`${inter.variable} antialiased`}>
         <ThemeProvider attribute={"class"} defaultTheme="light">
           <AppLayout website={website}>{children}</AppLayout>
+          <ContactModal />
+          <Toaster position="top-right" />
         </ThemeProvider>
       </body>
     </html>

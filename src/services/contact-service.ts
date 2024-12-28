@@ -1,12 +1,12 @@
+import { FORM_API } from "@/config/env";
+
 export const sendMessage = async (
   name: string,
   email: string,
   message: string
 ) => {
   try {
-    const URL = process.env.NEXT_PUBLIC_FORM_API;
-
-    if (!URL) throw new Error("FORM API Url not found!");
+    if (!FORM_API) throw new Error("FORM API Url not found!");
 
     const headers: HeadersInit = {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const sendMessage = async (
       email,
     });
 
-    const response = await fetch(URL, {
+    const response = await fetch(FORM_API, {
       method: "POST",
       headers,
       body,
