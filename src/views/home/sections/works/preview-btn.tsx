@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/framer-motion";
+import { MotionDiv } from "@/components/common/motion";
 import { Button } from "@/components/ui/button";
 import { LucideExternalLink } from "lucide-react";
 import { Variants } from "motion/react";

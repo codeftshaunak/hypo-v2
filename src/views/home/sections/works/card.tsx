@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/framer-motion";
+import { MotionDiv } from "@/components/common/motion";
 import {
   Card,
   CardContent,

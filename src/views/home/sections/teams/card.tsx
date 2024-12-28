@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/framer-motion";
+import { MotionDiv } from "@/components/common/motion";
 import { MemberType } from "@/types/team";
 import Image from "next/image";
 import MemberDetails from "./member-details";

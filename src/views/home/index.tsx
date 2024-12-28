@@ -1,4 +1,5 @@
 import { FeatureType } from "@/types/feature";
+import { ReviewType } from "@/types/review";
 import { ServiceType } from "@/types/service";
 import { MemberType } from "@/types/team";
 import { WebsiteType } from "@/types/website";
@@ -6,6 +7,7 @@ import { ProjectType } from "@/types/work";
 import "react-multi-carousel/lib/styles.css";
 import FeaturesSection from "./sections/features";
 import HeroSection from "./sections/hero";
+import ReviewsSection from "./sections/reviews";
 import ServicesSection from "./sections/services";
 import TeamsSection from "./sections/teams";
 import WorksSection from "./sections/works";
@@ -16,10 +18,11 @@ type Props = {
   services: ServiceType[];
   members: MemberType[];
   projects: ProjectType[];
+  reviews: ReviewType[];
 };
 
 const HomeView = (props: Props) => {
-  const { website, features, services, members, projects } = props;
+  const { website } = props;
   return (
     <>
       <HeroSection
@@ -30,24 +33,29 @@ const HomeView = (props: Props) => {
         image={website.heroImage}
       />
       <FeaturesSection
-        features={features}
+        features={props.features}
         description={website.featuresSection.description}
         title={website.featuresSection.title}
       />
       <ServicesSection
-        services={services}
+        services={props.services}
         description={website.servicesSection.description}
         title={website.servicesSection.title}
       />
       <TeamsSection
-        teams={members}
+        teams={props.members}
         description={website.teamsSection.description}
         title={website.teamsSection.title}
       />
       <WorksSection
-        projects={projects}
+        projects={props.projects}
         description={website.worksSection.description}
         title={website.worksSection.title}
+      />
+      <ReviewsSection
+        reviews={props.reviews}
+        description={website.reviewsSection.description}
+        title={website.reviewsSection.title}
       />
     </>
   );

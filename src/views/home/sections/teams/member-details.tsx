@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/framer-motion";
+import { MotionDiv } from "@/components/common/motion";
 import { getSocialIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { MemberType } from "@/types/team";
