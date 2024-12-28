@@ -1,0 +1,6 @@
+[data-scrolling="1"] .header {
+  background-color: hsl(var(--background) / 0.6);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid hsl(var(--border) / 0.8);
+  z-index: 100000;
+}

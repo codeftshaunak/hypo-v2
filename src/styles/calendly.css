@@ -1,0 +1,12 @@
+.calendly-overlay {
+  z-index: 100000000 !important;
+  backdrop-filter: blur(10px) !important;
+
+  .calendly-popup {
+    max-height: 750px !important;
+
+    iframe {
+      color-scheme: auto;
+    }
+  }
+}
