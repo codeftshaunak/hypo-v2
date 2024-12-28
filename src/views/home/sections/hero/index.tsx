@@ -1,4 +1,4 @@
-import { MotionBox } from "@/components/common/motion";
+import { FallInPlace } from "@/components/common/motion";
 import { AssetType, LinkType } from "@/types/hygraph";
 import Image from "next/image";
 import PrimaryBtn from "./primary-btn";
@@ -19,21 +19,27 @@ const HeroSection = (props: Props) => {
       <div className="bg-hero absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-blend-saturation opacity-[0.3] -z-[1]">
         <div className="bg-hero-child absolute inset-0 z-[1]"></div>
       </div>
-      <div className="container grid grid-cols-1 lg:grid-cols-2 pt-32 pb-20 px-4 sm:px-8 md:px-20 xl:px-32 gap-2">
-        <MotionBox className="flex flex-col justify-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 !leading-[1.25]">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 py-32 px-4 sm:px-8 md:px-20 xl:px-32 gap-2">
+        <div className="flex flex-col justify-center">
+          <FallInPlace
+            element="h1"
+            className="text-4xl sm:text-5xl font-extrabold mb-8 !leading-[1.25]"
+          >
             {title}
-          </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-normal">
+          </FallInPlace>
+          <FallInPlace
+            element="p"
+            className="text-lg sm:text-xl text-muted-foreground mb-6 leading-normal"
+          >
             {text}
-          </p>
+          </FallInPlace>
 
           <div className="flex items-center flex-wrap gap-4">
             {primaryLink && <PrimaryBtn {...primaryLink} />}
             {secondaryLink && <SecondaryBtn {...secondaryLink} />}
           </div>
-        </MotionBox>
-        <MotionBox className="hidden lg:block">
+        </div>
+        <FallInPlace className="hidden lg:block">
           {image && (
             <Image
               src={image.url}
@@ -43,7 +49,7 @@ const HeroSection = (props: Props) => {
               alt={title}
             />
           )}
-        </MotionBox>
+        </FallInPlace>
       </div>
     </>
   );
