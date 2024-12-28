@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/motion";
+import { MotionBox } from "@/components/common/motion";
 import { MemberType } from "@/types/team";
 import Image from "next/image";
 import MemberDetails from "./member-details";
@@ -10,7 +10,7 @@ type Props = {
 const TeamCard = (props: Props) => {
   const { member } = props;
   return (
-    <MotionDiv
+    <MotionBox
       initial="hide"
       whileHover={"show"}
       whileInView={"show"}
@@ -29,7 +29,7 @@ const TeamCard = (props: Props) => {
       <div className="absolute bottom-5 left-1/2 w-4/5 -translate-x-1/2">
         <MemberDetails member={member} />
       </div>
-    </MotionDiv>
+    </MotionBox>
   );
 };
 

@@ -1,3 +1,4 @@
+import { MotionBox } from "@/components/common/motion";
 import { AssetType, LinkType } from "@/types/hygraph";
 import Image from "next/image";
 import PrimaryBtn from "./primary-btn";
@@ -19,7 +20,7 @@ const HeroSection = (props: Props) => {
         <div className="bg-hero-child absolute inset-0 z-[1]"></div>
       </div>
       <div className="container grid grid-cols-1 lg:grid-cols-2 pt-32 pb-20 px-4 sm:px-8 md:px-20 xl:px-32 gap-2">
-        <div className="flex flex-col justify-center">
+        <MotionBox className="flex flex-col justify-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 !leading-[1.25]">
             {title}
           </h1>
@@ -31,8 +32,8 @@ const HeroSection = (props: Props) => {
             {primaryLink && <PrimaryBtn {...primaryLink} />}
             {secondaryLink && <SecondaryBtn {...secondaryLink} />}
           </div>
-        </div>
-        <div className="hidden lg:block">
+        </MotionBox>
+        <MotionBox className="hidden lg:block">
           {image && (
             <Image
               src={image.url}
@@ -42,7 +43,7 @@ const HeroSection = (props: Props) => {
               alt={title}
             />
           )}
-        </div>
+        </MotionBox>
       </div>
     </>
   );

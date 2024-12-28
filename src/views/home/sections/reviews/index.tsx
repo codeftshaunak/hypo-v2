@@ -1,5 +1,5 @@
 import MasonryLayout from "@/components/common/masonry-layout";
-import { MotionDiv } from "@/components/common/motion";
+import { MotionBox } from "@/components/common/motion";
 import { ReviewType } from "@/types/review";
 import { Variants } from "motion/react";
 import { SectionContainer, SectionHeader } from "../../common/section";
@@ -36,7 +36,7 @@ const ReviewsSection = (props: Props) => {
     <SectionContainer wrap>
       <SectionHeader title={title} text={description} />
 
-      <MotionDiv
+      <MotionBox
         variants={containerVariants}
         initial="hide"
         whileInView={"show"}
@@ -45,13 +45,13 @@ const ReviewsSection = (props: Props) => {
         <MasonryLayout
           items={reviews}
           renderElement={(item) => (
-            <MotionDiv variants={childVariants}>
+            <MotionBox variants={childVariants}>
               <ReviewCard review={item} />
-            </MotionDiv>
+            </MotionBox>
           )}
           className="gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         />
-      </MotionDiv>
+      </MotionBox>
     </SectionContainer>
   );
 };

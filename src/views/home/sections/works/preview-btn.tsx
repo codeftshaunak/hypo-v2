@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/motion";
+import { MotionBox } from "@/components/common/motion";
 import { Button } from "@/components/ui/button";
 import { LucideExternalLink } from "lucide-react";
 import { Variants } from "motion/react";
@@ -28,7 +28,7 @@ type Props = { href: string };
 const PreviewBtn = (props: Props) => {
   const { href } = props;
   return (
-    <MotionDiv
+    <MotionBox
       variants={variants}
       layout
       transition={{ type: "spring", bounce: 0.4, duration: 0.8 }}
@@ -44,7 +44,7 @@ const PreviewBtn = (props: Props) => {
           <LucideExternalLink />
         </Link>
       </Button>
-    </MotionDiv>
+    </MotionBox>
   );
 };
 

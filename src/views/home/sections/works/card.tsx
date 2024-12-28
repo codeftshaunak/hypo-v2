@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/motion";
+import { MotionBox } from "@/components/common/motion";
 import {
   Card,
   CardContent,
@@ -18,7 +18,7 @@ const WorkCard = (props: Props) => {
   const { project } = props;
   const { description, reference, technologies, thumbnail, title } = project;
   return (
-    <MotionDiv
+    <MotionBox
       initial="hide"
       whileHover={"show"}
       whileInView={"inview"}
@@ -49,7 +49,7 @@ const WorkCard = (props: Props) => {
           </div>
         )}
       </Card>
-    </MotionDiv>
+    </MotionBox>
   );
 };
 

@@ -1,4 +1,4 @@
-import { MotionDiv } from "@/components/common/motion";
+import { MotionBox } from "@/components/common/motion";
 import { getSocialIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { MemberType } from "@/types/team";
@@ -18,7 +18,7 @@ const MemberDetails = (props: Props) => {
   const { member } = props;
   const { firstName, lastName, position, externalLinks } = member;
   return (
-    <MotionDiv
+    <MotionBox
       variants={detailsVariants}
       className="bg-background text-center py-4 px-4 rounded-md w-full select-text"
     >
@@ -48,7 +48,7 @@ const MemberDetails = (props: Props) => {
           );
         })}
       </div>
-    </MotionDiv>
+    </MotionBox>
   );
 };
 
