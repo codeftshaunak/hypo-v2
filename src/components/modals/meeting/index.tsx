@@ -22,7 +22,7 @@ const MeetingModal = (props: Props) => {
     queryRouter.replace({ book_meeting: undefined });
   };
 
-  console.log({ bg, color, primary });
+  if (typeof document === "undefined") return null;
 
   return (
     <PopupModal
