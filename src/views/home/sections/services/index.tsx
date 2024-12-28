@@ -11,7 +11,7 @@ type Props = {
 const ServicesSection = (props: Props) => {
   const { services, description, title } = props;
   return (
-    <SectionContainer wrap>
+    <SectionContainer wrap id="services">
       <SectionHeader title={title} text={description} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5">
         {services.map((item) => (
