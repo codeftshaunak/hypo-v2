@@ -27,6 +27,17 @@ const metadata = async (): Promise<Metadata> => {
           height: video.height,
         })) || [],
     },
+    icons: {
+      icon: [
+        { url: "/favicons/favicon-16x16.png", sizes: "16x16" },
+        { url: "/favicons/favicon-32x32.png", sizes: "32x32" },
+        { url: "/favicons/android-chrome-192x192.png", sizes: "192x192" },
+        { url: "/favicons/android-chrome-512x512.png", sizes: "512x512" },
+        { url: "/favicons/favicon.ico" },
+      ],
+      apple: "/favicons/apple-touch-icon.png",
+    },
+    manifest: "/favicons/manifest.json",
   };
 };
 
