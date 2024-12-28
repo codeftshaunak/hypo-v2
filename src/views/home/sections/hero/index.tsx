@@ -19,8 +19,8 @@ const HeroSection = (props: Props) => {
         <div className="bg-hero-child absolute inset-0 z-[1]"></div>
       </div>
       <div className="container grid grid-cols-1 lg:grid-cols-2 pt-32 pb-20 px-4 sm:px-8 md:px-20 xl:px-32 gap-2">
-        <div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 leading-[1.15]">
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 !leading-[1.25]">
             {title}
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-normal">

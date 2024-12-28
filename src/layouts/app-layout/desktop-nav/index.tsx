@@ -8,7 +8,7 @@ type Props = {
 const DesktopNav = (props: Props) => {
   const { links } = props;
   return (
-    <ul className="hidden lg:flex items-center gap-9">
+    <ul className="hidden lg:flex items-center gap-8">
       {links.map((item, index) => (
         <li key={index}>
           <Link
