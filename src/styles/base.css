@@ -1,6 +1,11 @@
 * {
   @apply border-border;
 }
+
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply font-body bg-background text-foreground;
 }
