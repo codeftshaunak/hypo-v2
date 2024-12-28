@@ -1,6 +1,7 @@
 "use client";
 
 import { CALENDLY_LINK } from "@/config/env";
+import { MEETING_MODAL_KEY } from "@/config/keys";
 import useCSSVariable from "@/hooks/use-css-var";
 import { useQueryRouter } from "@/hooks/use-query-router";
 import { hslStringToHex } from "@/utils/color";
@@ -16,10 +17,10 @@ const MeetingModal = (props: Props) => {
 
   const searchParams = useSearchParams();
   const queryRouter = useQueryRouter();
-  const bookMeeting = searchParams.get("book_meeting");
+  const bookMeeting = searchParams.get(MEETING_MODAL_KEY);
 
   const onClose = () => {
-    queryRouter.replace({ book_meeting: undefined });
+    queryRouter.replace({ [MEETING_MODAL_KEY]: undefined });
   };
 
   if (typeof document === "undefined") return null;

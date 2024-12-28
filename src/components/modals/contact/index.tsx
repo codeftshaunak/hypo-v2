@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Form } from "@/components/ui/form";
+import { CONTACT_MODAL_KEY, MEETING_MODAL_KEY } from "@/config/keys";
 import { useQueryRouter } from "@/hooks/use-query-router";
 import { sendMessage } from "@/services/contact-service";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,10 +31,17 @@ const defaultValues: SchemaType = {
 const ContactModal = (props: Props) => {
   const searchParams = useSearchParams();
   const queryRouter = useQueryRouter();
-  const showContact = searchParams.get("show_contact");
+  const showContact = searchParams.get(CONTACT_MODAL_KEY);
 
   const onClose = () => {
-    queryRouter.replace({ show_contact: undefined });
+    queryRouter.replace({ [CONTACT_MODAL_KEY]: undefined });
+  };
+
+  const onMeet = () => {
+    queryRouter.replace({
+      [CONTACT_MODAL_KEY]: undefined,
+      [MEETING_MODAL_KEY]: "true",
+    });
   };
 
   const formOptions = useForm({ defaultValues, resolver: zodResolver(schema) });
@@ -77,6 +85,7 @@ const ContactModal = (props: Props) => {
                 disabled={formState.isSubmitting}
                 variant={"secondary"}
                 type="button"
+                onClick={onMeet}
               >
                 Book A Meeting Instead
               </Button>
