@@ -1,7 +1,7 @@
+import { SectionContainer } from "@/components/common/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription } from "@/components/ui/card";
 import { CONTACT_MODAL_KEY, MEETING_MODAL_KEY } from "@/config/keys";
-import { SectionContainer } from "@/views/home/common/section";
 import Link from "next/link";
 
 type Props = {};

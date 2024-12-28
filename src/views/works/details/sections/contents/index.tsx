@@ -1,5 +1,5 @@
 import { FallInPlace } from "@/components/common/motion";
-import { SectionContainer } from "@/views/home/common/section";
+import { SectionContainer } from "@/components/common/section";
 import { dummy } from "./dummy";
 
 type Props = {};

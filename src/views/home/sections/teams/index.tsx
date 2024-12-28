@@ -6,7 +6,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { MemberType } from "@/types/team";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";../../../../components/common/section
 import { SectionContainer, SectionHeader } from "../../common/section";
 import TeamCard from "./card";
 

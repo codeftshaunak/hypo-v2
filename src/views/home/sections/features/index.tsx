@@ -1,5 +1,8 @@
 import { FeatureType } from "@/types/feature";
-import { SectionContainer, SectionHeader } from "../../common/section";
+import {
+  SectionContainer,
+  SectionHeader,
+} from "../../../../components/common/section";
 import FeatureCard from "./card";
 
 type Props = {
