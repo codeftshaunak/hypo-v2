@@ -1,6 +1,7 @@
 import AppLayout from "@/layouts/app-layout";
 import { getWebsite } from "@/services/website-service";
 import "@/styles/index.css";
+import { ThemeProvider } from "next-themes";
 import { inter } from "./fonts";
 import metadata from "./metadata";
 
@@ -18,7 +19,9 @@ const RootLayout = async (props: Props) => {
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        <AppLayout website={website}>{children}</AppLayout>
+        <ThemeProvider attribute={"class"} defaultTheme="light">
+          <AppLayout website={website}>{children}</AppLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
