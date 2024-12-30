@@ -1,10 +1,16 @@
+import Link from "next/link";
+
 type Props = {
   text: string;
 };
 
 const Logo = (props: Props) => {
   const { text } = props;
-  return <h1 className="text-lg font-bold">{text}</h1>;
+  return (
+    <Link href={"/"}>
+      <h1 className="text-lg font-bold">{text}</h1>
+    </Link>
+  );
 };
 
 export default Logo;

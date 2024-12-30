@@ -1,5 +1,8 @@
 import { ServiceType } from "@/types/service";
-import { SectionContainer, SectionHeader } from "../../common/section";
+import {
+  SectionContainer,
+  SectionHeader,
+} from "../../../../components/common/section";
 import ServiceCard from "./card";
 
 type Props = {

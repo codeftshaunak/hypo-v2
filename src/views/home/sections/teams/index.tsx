@@ -1,3 +1,4 @@
+import { SectionContainer, SectionHeader } from "@/components/common/section";
 import {
   Carousel,
   CarouselContent,
@@ -6,7 +7,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { MemberType } from "@/types/team";
-import { SectionContainer, SectionHeader } from "../../common/section";
 import TeamCard from "./card";
 
 type Props = {

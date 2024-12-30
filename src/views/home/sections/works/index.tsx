@@ -1,5 +1,8 @@
 import { ProjectType } from "@/types/work";
-import { SectionContainer, SectionHeader } from "../../common/section";
+import {
+  SectionContainer,
+  SectionHeader,
+} from "../../../../components/common/section";
 import WorkCard from "./card";
 
 type Props = {

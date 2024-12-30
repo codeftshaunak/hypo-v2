@@ -1,5 +1,8 @@
 import { FAQType } from "@/types/faq";
-import { SectionContainer, SectionHeader } from "../../common/section";
+import {
+  SectionContainer,
+  SectionHeader,
+} from "../../../../components/common/section";
 import FAQCard from "./card";
 
 type Props = {

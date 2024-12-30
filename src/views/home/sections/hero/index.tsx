@@ -1,3 +1,4 @@
+import BgGradient from "@/components/common/bg-gradient";
 import { FallInPlace } from "@/components/common/motion";
 import { AssetType, LinkType } from "@/types/hygraph";
 import Image from "next/image";
@@ -16,9 +17,7 @@ const HeroSection = (props: Props) => {
   const { title, text, primaryLink, secondaryLink, image } = props;
   return (
     <>
-      <div className="bg-hero absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-blend-saturation opacity-[0.3] -z-[1]">
-        <div className="bg-hero-child absolute inset-0 z-[1]"></div>
-      </div>
+      <BgGradient />
       <div className="container grid grid-cols-1 lg:grid-cols-2 py-32 px-4 sm:px-8 md:px-20 xl:px-32 gap-2">
         <div className="flex flex-col justify-center">
           <FallInPlace

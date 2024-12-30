@@ -1,10 +1,12 @@
 import { ServiceResponseType } from "./types";
 
 export const asyncWrapper =
-  <T>(asyncFunc: () => Promise<T | null>) =>
-  async (): Promise<ServiceResponseType<T>> => {
+  <T, Args extends any[] = []>(
+    asyncFunc: (...args: Args) => Promise<T | null>
+  ) =>
+  async (...args: Args): Promise<ServiceResponseType<T>> => {
     try {
-      const data = await asyncFunc();
+      const data = await asyncFunc(...args);
       return { data, errors: [] };
     } catch (error: any) {
       console.log("ERROR:", error);

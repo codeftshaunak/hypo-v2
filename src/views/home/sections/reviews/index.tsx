@@ -2,7 +2,10 @@ import MasonryLayout from "@/components/common/masonry-layout";
 import { MotionBox } from "@/components/common/motion";
 import { ReviewType } from "@/types/review";
 import { Variants } from "motion/react";
-import { SectionContainer, SectionHeader } from "../../common/section";
+import {
+  SectionContainer,
+  SectionHeader,
+} from "../../../../components/common/section";
 import ReviewCard from "./card";
 
 // ----------------------------------------------------------------------

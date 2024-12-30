@@ -1,11 +1,14 @@
-import { AssetType } from "./hygraph";
+import { AssetType, SEOType } from "./hygraph";
 
 export type ProjectType = {
   id: string;
   title: string;
   description: string;
   slug: string;
-  technologies: string[];
   reference: null | string;
   thumbnail: AssetType;
+  content: {
+    html: string;
+  };
+  seo?: SEOType;
 };
