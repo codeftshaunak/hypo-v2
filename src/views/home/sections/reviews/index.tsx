@@ -36,7 +36,7 @@ type Props = {
 const ReviewsSection = (props: Props) => {
   const { reviews, description, title } = props;
   return (
-    <SectionContainer wrap>
+    <SectionContainer wrap id="reviews">
       <SectionHeader title={title} text={description} />
 
       <MotionBox
