@@ -4,17 +4,17 @@ import { FallInPlace } from "@/components/common/motion";
 import { Button } from "@/components/ui/button";
 import { AssetType } from "@/types/hygraph";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   title: string;
   text: string;
-  // primaryLink: LinkType;
-  // secondaryLink: LinkType;
+  reference?: string | null;
   image?: AssetType;
 };
 
 const HeroSection = (props: Props) => {
-  const { title, text, image } = props;
+  const { title, text, image, reference } = props;
   return (
     <>
       <BgGradient />
@@ -44,11 +44,15 @@ const HeroSection = (props: Props) => {
           </FallInPlace>
 
           <div className="flex items-center flex-wrap gap-4">
-            <FallInPlace>
-              <Button size={"xl"} variant={"outline"}>
-                Visit Now
-              </Button>
-            </FallInPlace>
+            {reference && (
+              <FallInPlace>
+                <Button size={"xl"} variant={"outline"} asChild>
+                  <Link href={reference} target="_blank">
+                    Visit Now
+                  </Link>
+                </Button>
+              </FallInPlace>
+            )}
           </div>
         </div>
         <FallInPlace className="max-lg:row-start-1">

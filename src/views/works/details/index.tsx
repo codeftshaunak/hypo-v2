@@ -1,22 +1,24 @@
+import { ProjectType } from "@/types/work";
 import ContentsSection from "./sections/contents";
 import HeroSection from "./sections/hero";
 import PromotionSection from "./sections/promotion";
 
-type Props = {};
+type Props = {
+  data: ProjectType;
+};
 
 const WorkDetailsView = (props: Props) => {
+  const { data } = props;
+  const { title, description, thumbnail, reference } = data;
   return (
     <>
       <HeroSection
-        title="ZeeWork - Freelance Platform"
-        text="ZeeWork connects clients and freelancers, empowering the future of work. We developed it to ensure secure transactions and seamless"
-        image={{
-          width: 1440,
-          height: 810,
-          url: "https://ap-south-1.graphassets.com/clx620ila0fr007pm9z3lh67o/clxq8cy2u0ydn07oftfhshpxx",
-        }}
+        title={title}
+        text={description}
+        image={thumbnail}
+        reference={reference}
       />
-      <ContentsSection />
+      {data.content?.html && <ContentsSection html={data.content.html} />}
       <PromotionSection />
     </>
   );

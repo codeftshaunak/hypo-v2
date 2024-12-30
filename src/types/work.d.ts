@@ -5,7 +5,9 @@ export type ProjectType = {
   title: string;
   description: string;
   slug: string;
-  technologies: string[];
   reference: null | string;
   thumbnail: AssetType;
+  content: {
+    html: string;
+  };
 };
