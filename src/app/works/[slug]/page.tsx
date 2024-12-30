@@ -2,8 +2,9 @@ import { getProject } from "@/services/project-service";
 import WorkDetailsView from "@/views/works/details";
 import { notFound } from "next/navigation";
 import { getProjectsSlug } from "./loader";
+import metadata from "./metadata";
 
-type Props = {
+export type Props = {
   params: Promise<{ slug: string }>;
 };
 
@@ -21,3 +22,4 @@ const WorkDetails = async (props: Props) => {
 export default WorkDetails;
 
 export const generateStaticParams = getProjectsSlug;
+export const generateMetadata = metadata;

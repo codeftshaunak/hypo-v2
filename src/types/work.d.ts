@@ -1,4 +1,4 @@
-import { AssetType } from "./hygraph";
+import { AssetType, SEOType } from "./hygraph";
 
 export type ProjectType = {
   id: string;
@@ -10,4 +10,5 @@ export type ProjectType = {
   content: {
     html: string;
   };
+  seo?: SEOType;
 };
