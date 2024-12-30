@@ -17,7 +17,7 @@ query Projects {
 
 export const getProjectQuery = (slug: string) => `
 query Project {
-  projects(where: {slug: "${slug}"}) {
+  project(where: {slug: "${slug}"}) {
     id
     title
     description

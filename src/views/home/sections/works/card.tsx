@@ -1,4 +1,5 @@
 import { MotionBox } from "@/components/common/motion";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { ProjectType } from "@/types/work";
 import Image from "next/image";
+import Link from "next/link";
 import PreviewBtn from "./preview-btn";
 
 type Props = {
@@ -16,7 +18,7 @@ type Props = {
 
 const WorkCard = (props: Props) => {
   const { project } = props;
-  const { description, reference, technologies, thumbnail, title } = project;
+  const { description, reference, thumbnail, title, slug } = project;
 
   return (
     <MotionBox
@@ -39,9 +41,12 @@ const WorkCard = (props: Props) => {
           <CardTitle className="text-lg line-clamp-1" title={title}>
             {title}
           </CardTitle>
-          <CardDescription className="text-sm line-clamp-3">
+          <CardDescription className="text-sm line-clamp-3 mb-4">
             {description}
           </CardDescription>
+          <Button size={"sm"} variant={"outline"} asChild>
+            <Link href={`/works/${slug}`}>Learn More</Link>
+          </Button>
         </CardContent>
 
         {reference && (
