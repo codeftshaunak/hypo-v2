@@ -1,6 +1,6 @@
 export const getWebsiteQuery = (id: string) => `
 query Website {
-  website(where: {id: "${id}"}) {
+  website(stage: PUBLISHED, where: {id: "${id}"}) {
     title
     logoText
     logo {

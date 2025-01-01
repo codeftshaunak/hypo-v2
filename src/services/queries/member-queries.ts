@@ -1,6 +1,6 @@
 export const getMembersQuery = () => `
 query Members {
-  members {
+  members(stage: PUBLISHED) {
     id
     firstName
     lastName

@@ -1,6 +1,6 @@
 export const getServicesQuery = () => `
 query Services {
-  services {
+  services(stage: PUBLISHED) {
     id
     title
     description
