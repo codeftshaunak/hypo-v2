@@ -1,6 +1,6 @@
 export const getFAQsQuery = () => `
 query FAQs {
-  faqs {
+  faqs(stage: PUBLISHED) {
     id
     question
     answer

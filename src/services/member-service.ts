@@ -13,6 +13,7 @@ export const getMembers = asyncWrapper<MemberType[]>(async () => {
     body: JSON.stringify({
       query: getMembersQuery(),
     }),
+    next: { tags: ["members"] },
   });
 
   const json: ApiResponseType<{ members: MemberType[] }> =

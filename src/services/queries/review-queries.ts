@@ -1,6 +1,6 @@
 export const getReviewsQuery = () => `
 query Reviews {
-  reviews {
+  reviews(stage: PUBLISHED) {
     id
     name
     position

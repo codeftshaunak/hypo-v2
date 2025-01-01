@@ -1,6 +1,6 @@
 export const getFeaturesQuery = () => `
 query Features {
-  features {
+  features(stage: PUBLISHED) {
     id
     title
     themeColor {
