@@ -13,6 +13,7 @@ export const getProjects = asyncWrapper<ProjectType[]>(async () => {
     body: JSON.stringify({
       query: getProjectsQuery(),
     }),
+    next: { tags: ["projects"] },
   });
 
   const json: ApiResponseType<{ projects: ProjectType[] }> =

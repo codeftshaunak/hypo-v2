@@ -13,6 +13,7 @@ export const getReviews = asyncWrapper<ReviewType[]>(async () => {
     body: JSON.stringify({
       query: getReviewsQuery(),
     }),
+    next: { tags: ["reviews"] },
   });
 
   const json: ApiResponseType<{ reviews: ReviewType[] }> =

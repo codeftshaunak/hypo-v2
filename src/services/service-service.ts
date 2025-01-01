@@ -13,6 +13,7 @@ export const getServices = asyncWrapper<ServiceType[]>(async () => {
     body: JSON.stringify({
       query: getServicesQuery(),
     }),
+    next: { tags: ["services"] },
   });
 
   const json: ApiResponseType<{ services: ServiceType[] }> =

@@ -13,6 +13,7 @@ export const getFAQs = asyncWrapper<FAQType[]>(async () => {
     body: JSON.stringify({
       query: getFAQsQuery(),
     }),
+    next: { tags: ["faqs"] },
   });
 
   const json: ApiResponseType<{ faqs: FAQType[] }> = await response.json();

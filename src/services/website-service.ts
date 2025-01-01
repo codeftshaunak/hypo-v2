@@ -13,6 +13,7 @@ export const getWebsite = asyncWrapper<WebsiteType>(async () => {
     body: JSON.stringify({
       query: getWebsiteQuery(WEBSITE_ID),
     }),
+    next: { tags: ["website"] },
   });
 
   const json: ApiResponseType<{ website: WebsiteType }> = await response.json();

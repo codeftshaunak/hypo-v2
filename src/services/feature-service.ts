@@ -13,6 +13,7 @@ export const getFeatures = asyncWrapper<FeatureType[]>(async () => {
     body: JSON.stringify({
       query: getFeaturesQuery(),
     }),
+    next: { tags: ["features"] },
   });
 
   const json: ApiResponseType<{ features: FeatureType[] }> =
