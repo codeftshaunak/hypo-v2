@@ -9,6 +9,7 @@ import "react-multi-carousel/lib/styles.css";
 import FAQSection from "./sections/faq";
 import FeaturesSection from "./sections/features";
 import HeroSection from "./sections/hero";
+import PlanSection from "./sections/pricing";
 import ReviewsSection from "./sections/reviews";
 import ServicesSection from "./sections/services";
 import TeamsSection from "./sections/teams";
@@ -44,6 +45,46 @@ const HomeView = (props: Props) => {
         services={props.services}
         description={website.servicesSection.description}
         title={website.servicesSection.title}
+      />
+      <PlanSection
+        title="Flexible Plans for Every Need"
+        description="Transparent pricing, no hidden fees—choose what fits you best."
+        plans={[
+          {
+            id: "1",
+            name: "Basic",
+            description: "For individuals and small teams",
+            price: 9,
+            featured: false,
+            features: ["Up to 5 projects", "Basic analytics", "24/7 support"],
+          },
+          {
+            id: "2",
+            name: "Pro",
+            description: "For growing businesses",
+            price: 29,
+            featured: true,
+            features: [
+              "Unlimited projects",
+              "Advanced analytics",
+              "Priority support",
+              "Custom integrations",
+            ],
+          },
+          {
+            id: "3",
+            name: "Enterprise",
+            description: "For large organizations",
+            price: 99,
+            featured: false,
+            features: [
+              "Unlimited everything",
+              "Advanced security",
+              "Dedicated account manager",
+              "Custom solutions",
+            ],
+          },
+        ]}
       />
       <TeamsSection
         teams={props.members}
