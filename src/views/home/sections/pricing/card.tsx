@@ -29,8 +29,8 @@ const TeamCard = (props: Props) => {
         <CardTitle>{plan.name}</CardTitle>
         <CardDescription>{plan.description}</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4 flex-1">
-        <div className="text-4xl font-bold">${plan.price}</div>
+      <CardContent className="flex flex-col gap-4 flex-1">
+        <div className="text-4xl font-bold my-5">${plan.price}</div>
         <ul className="grid gap-2 text-sm text-gray-500">
           {plan.features.map((feature) => (
             <li key={feature} className="flex items-center">

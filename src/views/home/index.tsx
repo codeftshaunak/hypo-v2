@@ -1,5 +1,6 @@
 import { FAQType } from "@/types/faq";
 import { FeatureType } from "@/types/feature";
+import { PlanType } from "@/types/plan";
 import { ReviewType } from "@/types/review";
 import { ServiceType } from "@/types/service";
 import { MemberType } from "@/types/team";
@@ -23,6 +24,7 @@ type Props = {
   projects: ProjectType[];
   reviews: ReviewType[];
   faqs: FAQType[];
+  plans: PlanType[];
 };
 
 const HomeView = (props: Props) => {
@@ -46,46 +48,13 @@ const HomeView = (props: Props) => {
         description={website.servicesSection.description}
         title={website.servicesSection.title}
       />
-      <PlanSection
-        title="Flexible Plans for Every Need"
-        description="Transparent pricing, no hidden fees—choose what fits you best."
-        plans={[
-          {
-            id: "1",
-            name: "Basic",
-            description: "For individuals and small teams",
-            price: 9,
-            featured: false,
-            features: ["Up to 5 projects", "Basic analytics", "24/7 support"],
-          },
-          {
-            id: "2",
-            name: "Pro",
-            description: "For growing businesses",
-            price: 29,
-            featured: true,
-            features: [
-              "Unlimited projects",
-              "Advanced analytics",
-              "Priority support",
-              "Custom integrations",
-            ],
-          },
-          {
-            id: "3",
-            name: "Enterprise",
-            description: "For large organizations",
-            price: 99,
-            featured: false,
-            features: [
-              "Unlimited everything",
-              "Advanced security",
-              "Dedicated account manager",
-              "Custom solutions",
-            ],
-          },
-        ]}
-      />
+      {props.plans?.length > 0 ? (
+        <PlanSection
+          title={website.plansSection.title}
+          description={website.plansSection.description}
+          plans={props.plans}
+        />
+      ) : null}
       <TeamsSection
         teams={props.members}
         description={website.teamsSection.description}

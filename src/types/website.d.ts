@@ -9,10 +9,10 @@ export type WebsiteType = {
   heroImage: AssetType;
   featuresSection: SectionHeaderType;
   servicesSection: SectionHeaderType;
+  plansSection: SectionHeaderType;
   teamsSection: SectionHeaderType;
   worksSection: SectionHeaderType;
   reviewsSection: SectionHeaderType;
-  pricingSection: SectionHeaderType;
   faqSection: SectionHeaderType;
   footerSection: SectionHeaderType;
   footerLinks: LinkType[];
