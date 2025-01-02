@@ -26,6 +26,10 @@ query Website {
       title
       description
     }
+    plansSection {
+      title
+      description
+    }
     teamsSection {
       title
       description
@@ -35,10 +39,6 @@ query Website {
       description
     }
     reviewsSection {
-      title
-      description
-    }
-    pricingSection {
       title
       description
     }

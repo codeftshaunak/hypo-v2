@@ -1,5 +1,6 @@
 import { FAQType } from "@/types/faq";
 import { FeatureType } from "@/types/feature";
+import { PlanType } from "@/types/plan";
 import { ReviewType } from "@/types/review";
 import { ServiceType } from "@/types/service";
 import { MemberType } from "@/types/team";
@@ -9,6 +10,7 @@ import "react-multi-carousel/lib/styles.css";
 import FAQSection from "./sections/faq";
 import FeaturesSection from "./sections/features";
 import HeroSection from "./sections/hero";
+import PlanSection from "./sections/pricing";
 import ReviewsSection from "./sections/reviews";
 import ServicesSection from "./sections/services";
 import TeamsSection from "./sections/teams";
@@ -22,6 +24,7 @@ type Props = {
   projects: ProjectType[];
   reviews: ReviewType[];
   faqs: FAQType[];
+  plans: PlanType[];
 };
 
 const HomeView = (props: Props) => {
@@ -45,6 +48,13 @@ const HomeView = (props: Props) => {
         description={website.servicesSection.description}
         title={website.servicesSection.title}
       />
+      {props.plans?.length > 0 ? (
+        <PlanSection
+          title={website.plansSection.title}
+          description={website.plansSection.description}
+          plans={props.plans}
+        />
+      ) : null}
       <TeamsSection
         teams={props.members}
         description={website.teamsSection.description}
