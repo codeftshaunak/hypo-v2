@@ -3,6 +3,7 @@ import {
   revalidateFaq,
   revalidateFeature,
   revalidateMemeber,
+  revalidatePlan,
   revalidateProject,
   revalidateReview,
   revalidateService,
@@ -16,7 +17,8 @@ type RevalidateType =
   | "Project"
   | "Service"
   | "Review"
-  | "Feature";
+  | "Feature"
+  | "Plan";
 
 export async function POST(req: NextRequest) {
   // Check for secret to confirm this is a valid request
@@ -54,6 +56,9 @@ export async function POST(req: NextRequest) {
         break;
       case "Feature":
         revalidateFeature(body);
+        break;
+      case "Plan":
+        revalidatePlan(body);
         break;
       default:
         return Response.json({ message: "Invalid type" }, { status: 400 });

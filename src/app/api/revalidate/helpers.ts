@@ -32,3 +32,7 @@ export const revalidateReview = async (payload: any) => {
 export const revalidateFeature = async (payload: any) => {
   revalidateTag("features");
 };
+
+export const revalidatePlan = async (payload: any) => {
+  revalidateTag("plans");
+};
