@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { MEETING_MODAL_KEY } from "@/config/keys";
+import { cn } from "@/lib/utils";
 import { PlanType } from "@/types/plan";
 import { Check } from "lucide-react";
 import Link from "next/link";
@@ -21,9 +22,12 @@ const TeamCard = (props: Props) => {
   return (
     <Card
       key={plan.name}
-      className={`flex flex-col ${
-        plan.featured ? "border-primary shadow-lg" : ""
-      }`}
+      className={cn(
+        `flex flex-col hover:scale-105 duration-300 border-transparent hover:border-primary hover:shadow-xl`,
+        plan.featured
+          ? "border-primary shadow-lg hover:!border-primary hover:!shadow-xl group-hover:border-transparent group-hover:shadow-none"
+          : ""
+      )}
     >
       <CardHeader>
         <CardTitle>{plan.name}</CardTitle>
