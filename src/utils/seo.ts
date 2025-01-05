@@ -8,6 +8,9 @@ export const handleSEOData = (
   title: seo?.title,
   description: seo?.description,
   keywords: seo?.keywords,
+  alternates: {
+    canonical: seo?.url,
+  },
   openGraph: {
     title: openGraph?.title,
     description: openGraph?.description,
