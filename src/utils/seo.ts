@@ -1,22 +1,25 @@
-import { SEOType } from "@/types/hygraph";
+import { OpenGraphType, SEOType } from "@/types/hygraph";
 import { Metadata } from "next";
 
-export const handleSEOData = (seo?: Partial<SEOType>): Metadata => ({
+export const handleSEOData = (
+  seo?: Partial<SEOType>,
+  openGraph?: Partial<OpenGraphType>
+): Metadata => ({
   title: seo?.title,
   description: seo?.description,
   keywords: seo?.keywords,
   openGraph: {
-    title: seo?.openGraph?.title,
-    description: seo?.openGraph?.description,
-    url: seo?.url,
+    title: openGraph?.title,
+    description: openGraph?.description,
+    url: openGraph?.url,
     images:
-      seo?.openGraph?.images?.map((image) => ({
+      openGraph?.images?.map((image) => ({
         url: image.url,
         width: image.width,
         height: image.height,
       })) || [],
     videos:
-      seo?.openGraph?.videos?.map((video) => ({
+      openGraph?.videos?.map((video) => ({
         url: video.url,
         width: video.width,
         height: video.height,

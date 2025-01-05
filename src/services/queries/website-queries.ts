@@ -81,24 +81,24 @@ query Website {
     seo {
       title
       description
-      url
-      openGraph {
-        title
-        description
-        images {
-          id
-          width
-          height
-          url
-        }
-        videos {
-          id
-          width
-          height
-          url
-        }
+      keywords
+    }
+    openGraph {
+      title
+      description
+      images {
+        id
+        width
+        height
         url
       }
+      videos {
+        id
+        width
+        height
+        url
+      }
+      url
     }
   }
 }
