@@ -5,4 +5,5 @@ export type PlanType = {
   price: number;
   features: string[];
   featured: boolean;
+  cta?: string;
 };
