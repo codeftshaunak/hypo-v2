@@ -32,7 +32,7 @@ type Props = {
 const PlanSection = (props: Props) => {
   const { plans, description, title } = props;
   return (
-    <SectionContainer id="teams" wrap>
+    <SectionContainer id="pricing" wrap>
       <SectionHeader title={title} text={description} />
       <MotionBox
         variants={containerVariants}
