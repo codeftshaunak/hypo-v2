@@ -31,6 +31,28 @@ query Project {
     content {
       html
     }
+    seo {
+      title
+      description
+      keywords
+    }
+    openGraph {
+      title
+      description
+      images {
+        id
+        width
+        height
+        url
+      }
+      videos {
+        id
+        width
+        height
+        url
+      }
+      url
+    }
   }
 }
 `;

@@ -1,4 +1,10 @@
-import { AssetType, LinkType, SectionHeaderType, SEOType } from "./hygraph";
+import {
+  AssetType,
+  LinkType,
+  OpenGraphType,
+  SectionHeaderType,
+  SEOType,
+} from "./hygraph";
 
 export type WebsiteType = {
   title: string;
@@ -20,4 +26,5 @@ export type WebsiteType = {
   primaryLink: LinkType;
   secondaryLink: LinkType;
   seo: SEOType;
+  openGraph: OpenGraphType;
 };

@@ -12,11 +12,14 @@ const metadata = async (props: Props): Promise<Metadata> => {
   if (!project) return {};
 
   return {
-    ...handleSEOData({
-      title: project.title,
-      description: project.description,
-      ...project?.seo,
-    }),
+    ...handleSEOData(
+      {
+        title: project.title,
+        description: project.description,
+        ...project?.seo,
+      },
+      project?.openGraph
+    ),
   };
 };
 
