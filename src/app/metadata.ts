@@ -9,7 +9,7 @@ const metadata = async (): Promise<Metadata> => {
   if (!website) return {};
 
   return {
-    ...handleSEOData(website?.seo),
+    ...handleSEOData(website?.seo, website?.openGraph),
     title: {
       default: website?.seo?.title || website.title,
       template: `%s | ${website?.seo?.title || website.title}`,

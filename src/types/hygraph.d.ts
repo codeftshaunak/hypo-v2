@@ -40,7 +40,6 @@ export type SEOType = {
   description?: string;
   keywords: string[];
   url?: string;
-  openGraph: OpenGraphType;
 };
 
 // API Response ----------------------------------------------------------------------
