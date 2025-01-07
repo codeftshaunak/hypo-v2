@@ -39,6 +39,7 @@ const ServicesSection = (props: Props) => {
         initial="hide"
         whileInView={"show"}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5"
+        viewport={{ once: true }}
       >
         {services.map((item) => (
           <MotionBox variants={childVariants} key={item.id}>

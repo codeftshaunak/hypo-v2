@@ -43,7 +43,7 @@ const ReviewsSection = (props: Props) => {
         variants={containerVariants}
         initial="hide"
         whileInView={"show"}
-        layout
+        viewport={{ once: true }}
       >
         <MasonryLayout
           items={reviews}
