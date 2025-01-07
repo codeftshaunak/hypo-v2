@@ -50,7 +50,9 @@ const TeamCard = (props: Props) => {
           variant={plan.featured ? "default" : "outline"}
           asChild
         >
-          <Link href={`?${MEETING_MODAL_KEY}=true`}>Get Started</Link>
+          <Link href={`?${MEETING_MODAL_KEY}=true`}>
+            {plan?.cta || "Let's Talk"}
+          </Link>
         </Button>
       </CardFooter>
     </Card>
