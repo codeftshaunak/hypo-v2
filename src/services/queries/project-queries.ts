@@ -35,6 +35,7 @@ query Project {
       title
       description
       keywords
+      url
     }
     openGraph {
       title

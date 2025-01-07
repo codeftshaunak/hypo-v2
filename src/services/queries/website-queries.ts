@@ -82,6 +82,7 @@ query Website {
       title
       description
       keywords
+      url
     }
     openGraph {
       title
