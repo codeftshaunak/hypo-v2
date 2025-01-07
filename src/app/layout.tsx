@@ -4,6 +4,10 @@ import { Toaster } from "@/components/ui/sonner";
 import AppLayout from "@/layouts/app-layout";
 import { getWebsite } from "@/services/website-service";
 import "@/styles/index.css";
+import {
+  generateOrganizationSchema,
+  generateWebsiteSchema,
+} from "@/utils/schema-org";
 import { ThemeProvider } from "next-themes";
 import { Suspense } from "react";
 import { inter } from "./fonts";
@@ -23,6 +27,18 @@ const RootLayout = async (props: Props) => {
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebsiteSchema(website)),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateOrganizationSchema(website)),
+          }}
+        />
         <ThemeProvider attribute={"class"} defaultTheme="light">
           <AppLayout website={website}>{children}</AppLayout>
           <Suspense>
