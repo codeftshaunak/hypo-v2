@@ -17,7 +17,7 @@ const MobileNavContent = (props: Props) => {
   return (
     <div
       className={cn(
-        "fixed top-0 left-0 w-full h-full bg-background flex flex-col lg:hidden duration-200",
+        "fixed top-0 left-0 w-full h-screen bg-background flex flex-col lg:hidden duration-200",
         open ? "" : "-translate-x-full"
       )}
     >
