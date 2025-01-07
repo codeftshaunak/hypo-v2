@@ -27,8 +27,9 @@ const WorkCard = (props: Props) => {
       whileInView={"inview"}
       animate="hide"
       md={{ whileInView: "" }}
+      className="h-full"
     >
-      <Card className="relative overflow-hidden">
+      <Card className="relative overflow-hidden h-full">
         <CardHeader className="relative aspect-video p-0">
           <Image
             alt={title}

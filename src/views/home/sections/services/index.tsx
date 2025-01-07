@@ -1,9 +1,27 @@
+import { MotionBox } from "@/components/common/motion";
+import { SectionContainer, SectionHeader } from "@/components/common/section";
 import { ServiceType } from "@/types/service";
-import {
-  SectionContainer,
-  SectionHeader,
-} from "../../../../components/common/section";
+import { Variants } from "motion/react";
 import ServiceCard from "./card";
+
+// ----------------------------------------------------------------------
+
+const containerVariants: Variants = {
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+  hide: {},
+};
+
+const childVariants: Variants = {
+  show: { opacity: 1, translateY: 0 },
+  hide: { opacity: 0, translateY: 100 },
+};
+
+// ----------------------------------------------------------------------
 
 type Props = {
   title?: string;
@@ -16,11 +34,19 @@ const ServicesSection = (props: Props) => {
   return (
     <SectionContainer wrap id="services">
       <SectionHeader title={title} text={description} />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5">
+      <MotionBox
+        variants={containerVariants}
+        initial="hide"
+        whileInView={"show"}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-5"
+        viewport={{ once: true }}
+      >
         {services.map((item) => (
-          <ServiceCard service={item} key={item.id} />
+          <MotionBox variants={childVariants} key={item.id}>
+            <ServiceCard service={item} key={item.id} />
+          </MotionBox>
         ))}
-      </div>
+      </MotionBox>
     </SectionContainer>
   );
 };

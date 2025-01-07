@@ -25,7 +25,7 @@ const FeatureCard = (props: Props) => {
         borderColor: themeColor.hex,
         backgroundColor: alpha(themeColor.hex, 0.25),
       }}
-      className="flex flex-col"
+      className="flex flex-col h-full"
     >
       <CardHeader>
         <span
